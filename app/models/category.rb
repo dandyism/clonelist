@@ -6,6 +6,6 @@ class Category < ActiveRecord::Base
   has_many :direct_ads, class_name: "Ad"
   
   def ads
-    self_and_descendants.map(&:direct_ads).flatten
+    self_and_descendants.map(&:direct_ads).inject(&:merge)
   end
 end
