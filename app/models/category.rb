@@ -1,6 +1,5 @@
 class Category < ActiveRecord::Base
-  validates :name, presence: true
+  acts_as_tree
   
-  belongs_to :parent_category, class_name: "Category", foreign_key: :parent_id
-  has_many :subcategories, class_name: "Category", foreign_key: :parent_id
+  validates :name, presence: true
 end

@@ -1,6 +1,6 @@
 <li>
   <%= category.name %>
   <ul>
-    <%= render partial: 'categories/category', collection: category.subcategories %>
+    <%= render partial: 'categories/category', collection: category.children %>
   </ul>
 </li>
