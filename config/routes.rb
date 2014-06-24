@@ -1,10 +1,14 @@
 Rails.application.routes.draw do
-  resources :categories do
-    resources :ads, shallow: true
-  end 
-
-  resources :regions
-
+  resources :region, only: [:index] do
+    resources :category, only: [:index] do
+      resources :ads, only: [:index, :new, :create]
+    end
+  end
+  
+  resources :region, only: [:new, :create, :edit, :update, :show, :destroy]
+  resources :category, only: [:new, :create, :edit, :update, :show, :destroy]
+  resources :ads, only: [:edit, :update, :show, :destroy]
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
