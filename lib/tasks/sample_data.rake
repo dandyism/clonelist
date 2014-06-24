@@ -2,28 +2,34 @@ namespace :db do
   desc "Fill the database with sample data"
   task populate: :environment do
     Rake::Task['db:reset'].invoke
-    make_regions
-    make_categories
+    regions = make_regions
+    categories = make_categories
+    make_ads(regions, categories)
   end
 end
 
 def make_regions
-  region = Region.create!(name: "US")
-  subregion1 = region.children.create!(name: "Alabama")
-  subregion2 = region.children.create!(name: "Alaska")
+  regions = []
   
-  subregion1.children.create!(name: "Auburn")
-  subregion1.children.create!(name: "Birmingham")
-  subregion1.children.create!(name: "Florence / Muscle Shoals")
-  subregion1.children.create!(name: "Gadsden-Anniston")
+  regions << region = Region.create!(name: "US")
+  regions << subregion1 = region.children.create!(name: "Alabama")
+  regions << subregion2 = region.children.create!(name: "Alaska")
   
-  subregion2.children.create!(name: "Anchorage / Mat-Su")
-  subregion2.children.create!(name: "Fairbanks")
-  subregion2.children.create!(name: "Kenai Peninsula")
-  subregion2.children.create!(name: "Southeast Alaska")
+  regions << subregion1.children.create!(name: "Auburn")
+  regions << subregion1.children.create!(name: "Birmingham")
+  regions << subregion1.children.create!(name: "Florence / Muscle Shoals")
+  regions << subregion1.children.create!(name: "Gadsden-Anniston")
+  
+  regions << subregion2.children.create!(name: "Anchorage / Mat-Su")
+  regions << subregion2.children.create!(name: "Fairbanks")
+  regions << subregion2.children.create!(name: "Kenai Peninsula")
+  regions << subregion2.children.create!(name: "Southeast Alaska")
+  
+  regions
 end
 
 def make_categories
+  categories = []
   names = []
   
   10.times do
@@ -31,6 +37,21 @@ def make_categories
   end
   
   names.uniq.each do |name|
-    Category.create!(name: name)
+    categories << Category.create!(name: name)
+  end
+  
+  categories
+end
+
+def make_ads(regions, categories)
+  regions.each do |region|
+    categories.each do |category|
+      title = Faker::Commerce.product_name
+      
+      ad = region.direct_ads.new(title: title)
+      category.direct_ads.push ad
+      
+      ad.save!
+    end
   end
 end
