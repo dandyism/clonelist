@@ -36,6 +36,9 @@ GEM
     builder (3.2.2)
     celluloid (0.15.2)
       timers (~> 1.1.0)
+    closure_tree (4.6.2)
+      activerecord (>= 3.2.0)
+      with_advisory_lock (>= 0.0.9)
     coderay (1.1.0)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
@@ -166,6 +169,8 @@ GEM
     uglifier (2.5.1)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    with_advisory_lock (1.0.0)
+      activerecord (>= 3.0.0)
 
 PLATFORMS
   ruby
@@ -173,6 +178,7 @@ PLATFORMS
 DEPENDENCIES
   better_errors
   binding_of_caller
+  closure_tree
   coffee-rails (~> 4.0.0)
   guard-rspec
   jbuilder (~> 2.0)

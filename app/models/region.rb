@@ -1,8 +1,11 @@
 class Region < ActiveRecord::Base
+  acts_as_tree
+  
   validates :name, presence: true
   
-  belongs_to :parent_region, class_name: "Region", foreign_key: :parent_id
-  has_many :subregions, class_name: "Region", foreign_key: :parent_id
+  has_many :direct_categories, class_name: "Category"
   
-  has_many :categories
+  def categories
+    self_and_descendants.map(&:direct_categories).flatten
+  end
 end

@@ -1,6 +1,6 @@
 <li>
   <%= link_to region.name, region %>
   <ul>
-    <%= render partial: 'region', collection: region.subregions %>
+    <%= render partial: 'region', collection: region.children %>
   </ul>
 </li>
