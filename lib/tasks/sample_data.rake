@@ -46,12 +46,14 @@ end
 def make_ads(regions, categories)
   regions.each do |region|
     categories.each do |category|
-      title = Faker::Commerce.product_name
+      20.times do
+        title = Faker::Commerce.product_name
       
-      ad = region.direct_ads.new(title: title)
-      category.direct_ads.push ad
+        ad = region.direct_ads.new(title: title)
+        category.direct_ads.push ad
       
-      ad.save!
+        ad.save!
+      end
     end
   end
 end
