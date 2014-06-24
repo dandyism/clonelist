@@ -1,5 +1,5 @@
 <h1><%= @region.name %></h1>
 
 <ul>
-  <%= render partial: 'categories/category', collection: @region.categories %>
+  <%= render partial: 'categories/category', collection: Category.all %>
 </ul>

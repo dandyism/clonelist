@@ -24,15 +24,13 @@ def make_regions
 end
 
 def make_categories
-  Region.leaves.each do |leaf|
-    names = []
-    
-    10.times do
-      names.push Faker::Commerce.department
-    end
-    
-    names.uniq.each do |name|
-      leaf.direct_categories.create!(name: name)
-    end
+  names = []
+  
+  10.times do
+    names.push Faker::Commerce.department
+  end
+  
+  names.uniq.each do |name|
+    Category.create!(name: name)
   end
 end
