@@ -1,0 +1,6 @@
+<li>
+  <%= category.name %>
+  <ul>
+    <%= render partial: 'categories/category', collection: category.subcategories %>
+  </ul>
+</li>
