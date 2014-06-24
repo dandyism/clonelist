@@ -11,68 +11,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140624191958) do
+ActiveRecord::Schema.define(version: 20140624223502) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "ads", force: true do |t|
+  create_table "posts", force: true do |t|
     t.string   "title"
     t.text     "description"
+    t.integer  "author_id"
     t.decimal  "price"
     t.string   "location"
-    t.integer  "region_id"
-    t.integer  "category_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "ads", ["region_id", "category_id"], name: "index_ads_on_region_id_and_category_id", using: :btree
-
-  create_table "categories", force: true do |t|
-    t.integer  "parent_id"
-    t.string   "name",       null: false
+  create_table "users", force: true do |t|
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "categories", ["parent_id"], name: "index_categories_on_parent_id", using: :btree
-
-  create_table "category_hierarchies", force: true do |t|
-    t.integer "ancestor_id",   null: false
-    t.integer "descendant_id", null: false
-    t.integer "generations",   null: false
-  end
-
-  add_index "category_hierarchies", ["ancestor_id", "descendant_id", "generations"], name: "category_anc_desc_idx", unique: true, using: :btree
-  add_index "category_hierarchies", ["descendant_id"], name: "category_desc_idx", using: :btree
-
-  create_table "region_hierarchies", force: true do |t|
-    t.integer "ancestor_id",   null: false
-    t.integer "descendant_id", null: false
-    t.integer "generations",   null: false
-  end
-
-  add_index "region_hierarchies", ["ancestor_id", "descendant_id", "generations"], name: "region_anc_desc_idx", unique: true, using: :btree
-  add_index "region_hierarchies", ["descendant_id"], name: "region_desc_idx", using: :btree
-
-  create_table "regions", force: true do |t|
-    t.integer  "parent_id"
-    t.string   "name",       null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "regions", ["parent_id"], name: "index_regions_on_parent_id", using: :btree
-
-  create_table "sites", force: true do |t|
-    t.string   "region",     null: false
-    t.string   "subregion",  null: false
-    t.string   "name",       null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "sites", ["region", "subregion", "name"], name: "index_sites_on_region_and_subregion_and_name", unique: true, using: :btree
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
 end

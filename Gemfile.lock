@@ -28,6 +28,7 @@ GEM
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
     arel (5.0.1.20140414130214)
+    bcrypt (3.1.7)
     better_errors (1.1.0)
       coderay (>= 1.0.0)
       erubis (>= 2.6.6)
@@ -48,6 +49,12 @@ GEM
       execjs
     coffee-script-source (1.7.0)
     debug_inspector (0.0.2)
+    devise (3.2.4)
+      bcrypt (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (>= 3.2.6, < 5)
+      thread_safe (~> 0.1)
+      warden (~> 1.2.3)
     diff-lcs (1.2.5)
     erubis (2.7.0)
     execjs (2.2.0)
@@ -85,6 +92,7 @@ GEM
     mime-types (1.25.1)
     minitest (5.3.5)
     multi_json (1.10.1)
+    orm_adapter (0.5.0)
     pg (0.17.1)
     polyglot (0.3.5)
     pry (0.9.12.6)
@@ -171,8 +179,13 @@ GEM
     uglifier (2.5.1)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+<<<<<<< HEAD
     with_advisory_lock (1.0.0)
       activerecord (>= 3.0.0)
+=======
+    warden (1.2.3)
+      rack (>= 1.0)
+>>>>>>> rewrite
 
 PLATFORMS
   ruby
@@ -182,7 +195,11 @@ DEPENDENCIES
   binding_of_caller
   closure_tree
   coffee-rails (~> 4.0.0)
+<<<<<<< HEAD
   faker
+=======
+  devise
+>>>>>>> rewrite
   guard-rspec
   jbuilder (~> 2.0)
   jquery-rails
