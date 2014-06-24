@@ -1,0 +1,6 @@
+<li>
+  <%= region.name %>
+  <ul>
+    <%= render partial: 'region', collection: region.child_regions %>
+  </ul>
+</li>
