@@ -1,5 +1,5 @@
 <li>
-  <%= category.name %>
+  <%= link_to category.name, region_category_ads_url(@region, category) %>
   <ul>
     <%= render partial: 'categories/category', collection: category.children %>
   </ul>
