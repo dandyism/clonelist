@@ -17,3 +17,10 @@ group :development do
   gem 'pry-rails'
 end
 
+group :development, :test do
+  gem 'rspec-rails'
+end
+
+group :test do
+  gem 'guard-rspec'
+end
