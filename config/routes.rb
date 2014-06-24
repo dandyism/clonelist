@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
-  resources :region, only: [:index] do
-    resources :category, only: [:index] do
+  resources :regions, only: [:index] do
+    resources :categories, only: [:index] do
       resources :ads, only: [:index, :new, :create]
     end
   end
   
-  resources :region, only: [:new, :create, :edit, :update, :show, :destroy]
-  resources :category, only: [:new, :create, :edit, :update, :show, :destroy]
+  resources :regions
+  resources :categories
   resources :ads, only: [:edit, :update, :show, :destroy]
   
   # The priority is based upon order of creation: first created -> highest priority.
