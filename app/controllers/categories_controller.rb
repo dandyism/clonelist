@@ -12,7 +12,7 @@ class CategoriesController < ApplicationController
       query = ""
 
       keywords.each do |keyword|
-        query += "title LIKE '%#{keyword}%' OR description LIKE '%#{keyword}%' "
+        query += "UPPER(title) LIKE UPPER('%#{keyword}%') OR UPPER(description) LIKE UPPER('%#{keyword}%') "
       end
 
       @posts = @category.posts.where(query)

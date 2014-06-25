@@ -2,10 +2,10 @@ feature "searching" do
 
   before(:each) do
     category = FactoryGirl.create(:category, name: 'test category')
-    target_ad = FactoryGirl.create(:post, title: 'car ad')
-    desc_ad = FactoryGirl.create(:post, title: 'Honda Ad', description: "This is a car.")
-    ignored_ad = FactoryGirl.create(:post, title: 'House Ad', description: "empty")
-    titlecase_ad = FactoryGirl.create(:post, title: 'Car Ad', description: "empty")
+    target_ad = FactoryGirl.create(:post, title: 'car ad', category: category)
+    desc_ad = FactoryGirl.create(:post, title: 'Honda Ad', description: "This is a car.", category: category)
+    ignored_ad = FactoryGirl.create(:post, title: 'House Ad', description: "empty", category: category)
+    titlecase_ad = FactoryGirl.create(:post, title: 'Car Ad', description: "empty", category: category)
 
     visit category_url(category)
     fill_in 'Keywords', with: 'car'
