@@ -1,6 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe Post, :type => :model do
+  it "should have a valid factory" do
+    expect(FactoryGirl.build(:post)).to be_valid
+  end
+
   it "should require a title" do
     expect(FactoryGirl.build(:post, title: nil)).not_to be_valid
   end
