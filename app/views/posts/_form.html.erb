@@ -11,9 +11,9 @@
   <% end %>
 
   <label for="post-category">category</label>
-  <select name="post[category]" id="post-category">
+  <select name="post[category_id]" id="post-category">
     <% Category.all.each do |category| %>
-      <option value="<%= category %>"><%= category %></option>
+      <option value="<%= category.id %>"><%= category.name %></option>
     <% end %>
   </select>
 
