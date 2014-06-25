@@ -6,8 +6,9 @@ class CategoriesController < ApplicationController
   
   def show
     @category = Category.find(params[:id])
+    @posts = @category.posts
 
-    if params[:keywords]
+    unless params[:keywords].empty?
       keywords = params[:keywords].split
       conditions = []
 
@@ -16,7 +17,15 @@ class CategoriesController < ApplicationController
       end
 
       query = conditions.join(" OR ")
-      @posts = @category.posts.where(query)
+      @posts = @posts.where(query)
+    end
+
+    unless params[:min_price].empty?
+      @posts = @posts.where('price >= ?', params[:min_price])
+    end
+
+    unless params[:max_price].empty?
+      @posts = @posts.where('price <= ?', params[:max_price])
     end
   end
 end
