@@ -1,4 +1,4 @@
-<% action = (@post.persisted?) ? @post : posts_url %>
+<% action = (post.persisted?) ? post : posts_url %>
 
 <form action="<%= action %>" method="post">
   <input type="hidden"
@@ -6,26 +6,26 @@
          value="<%= form_authenticity_token %>"
          id="authenticity_token">
   
-  <% if @post.persisted? %>
+  <% if post.persisted? %>
   <input type="hidden" name="_method" value="patch" id="_method">
   <% end %>
 
   <label  for="post-title">post title</label>
   <input  type="text"
           name="post[title]"
-          value="<%= @post.title %>"
+          value="<%= post.title %>"
           id="post-title">
          
   <label  for="post-price">price</label>
   <input  type="text"
           name="post[price]"
-          value="<%= @post.price %>"
+          value="<%= post.price %>"
           id="post-price">
   
   <label  for="post-location">location</label>
   <input  type="text"
           name="post[location]"
-          value="<%= @post.location %>"
+          value="<%= post.location %>"
           id="post-location">
 
   <label for="post-description">post description</label>
