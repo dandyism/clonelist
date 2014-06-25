@@ -11,6 +11,8 @@ gem 'jbuilder', '~> 2.0'
 gem 'devise'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'rails_12factor'
+gem 'factory_girl_rails'
+gem 'faker'
 
 group :development do
   gem 'spring'
@@ -21,8 +23,6 @@ end
 
 group :development, :test do
   gem 'rspec-rails'
-  gem 'factory_girl_rails'
-  gem 'faker'
 end
 
 group :test do
