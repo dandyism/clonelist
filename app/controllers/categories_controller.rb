@@ -5,27 +5,34 @@ class CategoriesController < ApplicationController
   end
   
   def show
-    @category = Category.find(params[:id])
-    @posts = @category.posts
+    conditions = []
+    values = []
 
-    unless params[:keywords].empty?
+    unless params[:keywords].blank?
       keywords = params[:keywords].split
-      conditions = []
 
       keywords.each do |keyword|
-        conditions << "UPPER(title) LIKE UPPER('%#{keyword}%') OR UPPER(description) LIKE UPPER('%#{keyword}%')"
+        conditions << <<-SQL
+          UPPER(posts.title) LIKE UPPER('%?%') 
+          OR UPPER(posts.description) LIKE UPPER('%?%')"
+        SQL
+
+        values << keyword
       end
-
-      query = conditions.join(" OR ")
-      @posts = @posts.where(query)
     end
 
-    unless params[:min_price].empty?
-      @posts = @posts.where('price >= ?', params[:min_price])
+    unless params[:min_price].blank?
+      conditions << 'posts.price >= ?'
+      values << params[:min_price]
     end
 
-    unless params[:max_price].empty?
-      @posts = @posts.where('price <= ?', params[:max_price])
+    unless params[:max_price].blank?
+      conditions << 'posts.price <= ?'
+      values << params[:max_price]
     end
+
+    query = conditions.join(' OR ')
+    @category = Category.find(params[:id])
+    @posts = @category.posts.where(query, values)
   end
 end
