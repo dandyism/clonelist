@@ -1,6 +1,19 @@
-<%= @post.title %>
-<%= number_to_currency(@post.price) %>
-<%= @post.location %>
-<%= @post.description %>
-<%= time_ago_in_words(@post.created_at) %>
-<%= time_ago_in_words(@post.updated_at) %>
+<article class="post">
+  <h2 class="post-title"><%= @post.title %></h2>
+
+  <ul>
+    <li><%= number_to_currency(@post.price) %></li>
+    <li><%= @post.location %></li>
+  </ul>
+
+  <p class="post-description">
+    <%= @post.description %>
+  </p>
+
+  <footer class="post-footer">
+    <ul class="post-timestamp">
+      <li><%= time_ago_in_words(@post.created_at) %></li>
+      <li><%= time_ago_in_words(@post.updated_at) %></li>
+    </ul>
+  </footer>
+</article>
