@@ -2,6 +2,6 @@
   <% if signed_in? %>
     [<%= current_user.email %>]
   <% else %>
-    [<%= link_to 'account', new_use_session_url %>]
+    [<%= link_to 'account', new_user_session_url %>]
   <% end %>
 </header>
