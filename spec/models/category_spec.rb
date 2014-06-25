@@ -1,5 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Category, :type => :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it "should require a name" do
+    expect(FactoryGirl.build(:category, name: nil)).not_to be_valid
+  end
 end
