@@ -27,5 +27,6 @@ end
 
 group :test do
   gem 'capybara'
+  gem 'launchy'
   gem 'guard-rspec'
 end
