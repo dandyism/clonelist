@@ -16,4 +16,8 @@ RSpec.describe Post, :type => :model do
   it "should require that price is a decimal" do
     expect(FactoryGirl.build(:post, price: "string")).not_to be_valid
   end
+
+  it "should require a category" do
+    expect(FactoryGirl.build(:post, category: nil)).not_to be_valid
+  end
 end
