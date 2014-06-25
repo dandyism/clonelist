@@ -1,4 +1,5 @@
 def fill_in_post_form
+  select('test category', from: 'category')
   fill_in 'post-title', with: Faker::Commerce.product_name
   fill_in 'post-description', with: Faker::Lorem.paragraph
   fill_in 'price', with: Faker::Commerce.price

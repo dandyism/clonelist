@@ -10,6 +10,13 @@
   <input type="hidden" name="_method" value="patch" id="_method">
   <% end %>
 
+  <label for="post-category">category</label>
+  <select name="post[category]" id="post-category">
+    <% Category.all.each do |category| %>
+      <option value="<%= category %>"><%= category %></option>
+    <% end %>
+  </select>
+
   <label  for="post-title">post title</label>
   <input  type="text"
           name="post[title]"
