@@ -1,5 +1,4 @@
 def fill_in_post_form
-  save_and_open_page
   select('test category', from: 'category')
   fill_in 'post-title', with: Faker::Commerce.product_name
   fill_in 'post-description', with: Faker::Lorem.paragraph
