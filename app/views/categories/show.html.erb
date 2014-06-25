@@ -1,3 +1,5 @@
+<%= render partial: 'shared/search' %>
+
 <ul>
   <%= render partial: 'posts/post', collection: (@posts || @category.posts) %>
 </ul>

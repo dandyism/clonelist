@@ -8,11 +8,11 @@ class CategoriesController < ApplicationController
     @category = Category.find(params[:id])
 
     if params[:search]
-      keywords = params[:search][:keywords]
+      keywords = params[:search][:keywords].split
       query = ""
 
       keywords.each do |keyword|
-        query += "title LIKE '%#{keyword}% OR description LIKE '%#{keyword}%' "
+        query += "title LIKE '%#{keyword}%' OR description LIKE '%#{keyword}%' "
       end
 
       @posts = @category.posts.where(query)

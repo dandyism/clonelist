@@ -1,6 +1,8 @@
-<form class="search" action="<%= action || request.fullpath %>" method="post">
-  <input type="hidden" value="<%= form_authenticity_token %>" name="authenticity_token">
+<% unless defined? action %>
+  <% action = request.fullpath %>
+<% end %>
 
+<form class="search" action="<%= action %>" method="get">
   <label for="search-keywords">Keywords</label>
   <input id="search-keywords" type="search" value="" name="search[keywords]">
 
