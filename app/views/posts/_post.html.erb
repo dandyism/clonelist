@@ -1,3 +1,4 @@
 <li>
-  <%= "#{post.title} #{number_to_currency(post.price)} #{post.location}" %>
+  <%= link_to post.title, post %>
+  <%= "#{number_to_currency(post.price)} #{post.location}" %>
 </li>
