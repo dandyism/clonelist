@@ -1,6 +1,11 @@
 require "posting_helper"
 
 feature "posting an advertisement" do
+  before(:each) do
+    category = FactoryGirl.create(:category, name: 'test category')
+    ad = FactoryGirl.create(:post, title: 'test ad', category: category)
+  end
+
   scenario "requires login" do
     visit new_post_url
     expect(page).to have_content "Sign in"
