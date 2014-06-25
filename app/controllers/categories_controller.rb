@@ -9,12 +9,13 @@ class CategoriesController < ApplicationController
 
     if params[:keywords]
       keywords = params[:keywords].split
-      query = ""
+      conditions = []
 
       keywords.each do |keyword|
-        query += "UPPER(title) LIKE UPPER('%#{keyword}%') OR UPPER(description) LIKE UPPER('%#{keyword}%') "
+        conditions << "UPPER(title) LIKE UPPER('%#{keyword}%') OR UPPER(description) LIKE UPPER('%#{keyword}%')"
       end
 
+      query = conditions.join(" OR ")
       @posts = @category.posts.where(query)
     end
   end
