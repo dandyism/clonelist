@@ -13,6 +13,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'rails_12factor'
 gem 'factory_girl_rails'
 gem 'faker'
+gem 'cancan'
 
 group :development do
   gem 'spring'
