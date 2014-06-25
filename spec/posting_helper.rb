@@ -4,3 +4,11 @@ def fill_in_post_form
   fill_in 'price', with: Faker::Commerce.price
   fill_in 'location', with: "#{Faker::Address.city}, #{Faker::Address.state_abbr}"
 end
+
+def fill_in_signup_form
+  fill_in 'Email', with: Faker::Internet.email
+
+  password = Faker::Internet.password
+  fill_in 'Password', with: password
+  fill_in 'Password confirmation', with: password
+end
