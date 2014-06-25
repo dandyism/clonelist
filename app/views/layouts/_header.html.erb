@@ -1,6 +1,7 @@
 <header>
   <% if signed_in? %>
     [<%= current_user.email %>]
+    [<%= link_to 'post', new_post_url %>]
   <% else %>
     [<%= link_to 'account', new_user_session_url %>]
   <% end %>
