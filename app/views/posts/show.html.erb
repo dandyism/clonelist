@@ -1,5 +1,5 @@
 <%= @post.title %>
-<%= @post.price %>
+<%= number_to_currency(@post.price) %>
 <%= @post.location %>
 <%= @post.description %>
 <%= time_ago_in_words(@post.created_at) %>
