@@ -7,8 +7,8 @@ class CategoriesController < ApplicationController
   def show
     @category = Category.find(params[:id])
 
-    if params[:search]
-      keywords = params[:search][:keywords].split
+    if params[:keywords]
+      keywords = params[:keywords].split
       query = ""
 
       keywords.each do |keyword|
