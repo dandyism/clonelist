@@ -1,4 +1,4 @@
-<li>
+<li class="item post-item">
   <%= link_to post.title, post %>
   <%= "#{number_to_currency(post.price)} #{post.location}" %>
   <% if can? :update, post %>
