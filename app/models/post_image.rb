@@ -7,4 +7,8 @@ class PostImage < ActiveRecord::Base
   def url
     file.url
   end
+
+  def filename
+    file_file_name
+  end
 end
