@@ -40,3 +40,9 @@
 .nav-item {
   float: left;
 }
+
+.nav-item a,
+.nav-item button,
+.nav-item input[type="submit"] {
+  padding: 10px
+}
