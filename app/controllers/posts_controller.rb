@@ -5,21 +5,6 @@ class PostsController < ApplicationController
 
   def new_post
     @post = current_user.posts.new(post_params)
-    @post.images = image_params.map do |image_data|
-      if image_data[:id].present?
-        image = PostImage.find(image_data[:id])
-
-        if image_data[:file].blank?
-          image.destroy
-          next
-        end
-
-        image.update(image_data)
-        image
-      elsif image_data[:file].present?
-        PostImage.new(image_data)
-      end
-    end.compact
   end
 
   def index
@@ -31,6 +16,12 @@ class PostsController < ApplicationController
   end
   
   def create
+    @post.images = image_params.map do |image_data|
+      if image_data[:file].present?
+        PostImage.new(image_data)
+      end
+    end.compact
+
     if @post.save
       redirect_to @post, notice: "Success"
     else
@@ -43,9 +34,28 @@ class PostsController < ApplicationController
   end
   
   def edit
+    until @post.images.length >= 5
+      @post.images.build
+    end
   end
   
   def update
+    @post.images = image_params.map do |image_data|
+      if image_data[:id].present?
+        image = PostImage.find(image_data[:id])
+
+        if image_data[:file].blank? || image_data[:_destroy]
+          image.destroy
+          next
+        end
+
+        image.update(image_data)
+        image
+      elsif image_data[:file].present?
+        PostImage.new(image_data)
+      end
+    end.compact
+
     if @post.update(post_params)
       redirect_to @post
     else
@@ -65,6 +75,6 @@ class PostsController < ApplicationController
   end
 
   def image_params
-    params.permit(images: [:file, :id]).require(:images).values
+    params.permit(images: [:file, :id, :_destroy]).require(:images).values
   end
 end
