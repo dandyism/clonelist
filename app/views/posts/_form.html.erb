@@ -13,7 +13,9 @@
   <label for="post-category">category</label>
   <select name="post[category_id]" id="post-category">
     <% Category.all.each do |category| %>
-      <option value="<%= category.id %>"><%= category.name %></option>
+      <option value="<%= category.id %>" <%= "selected" if @post.category == category %>>
+        <%= category.name %>
+      </option>
     <% end %>
   </select>
 
