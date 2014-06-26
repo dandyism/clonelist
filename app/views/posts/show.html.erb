@@ -16,8 +16,8 @@
 
   <footer class="post-footer">
     <ul class="post-timestamp">
-      <li><%= time_ago_in_words(@post.created_at) %></li>
-      <li><%= time_ago_in_words(@post.updated_at) %></li>
+      <li>created <%= time_ago_in_words(@post.created_at) %></li>
+      <li>updated <%= time_ago_in_words(@post.updated_at) %></li>
     </ul>
 
     <ul class="post-management">
