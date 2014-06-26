@@ -8,7 +8,7 @@ feature "posting an advertisement" do
 
   scenario "requires login" do
     visit new_post_url
-    expect(page).to have_content "Sign in"
+    expect(page.status_code).to eq 403  
   end
 
   scenario "should work when logged in" do
