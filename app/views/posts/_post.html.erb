@@ -1,7 +1,7 @@
 <li>
   <%= link_to post.title, post %>
   <%= "#{number_to_currency(post.price)} #{post.location}" %>
-  <% if can? :update %>
+  <% if can? :update, post %>
     <%= link_to "edit", edit_post_url(post) %>
   <% end %>
 </li>

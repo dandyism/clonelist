@@ -21,7 +21,9 @@
     </ul>
 
     <ul class="post-management">
-      <li><%= link_to "edit", edit_post_url(@post) %></li>
+      <% if can? :update, @post %>
+        <li><%= link_to "edit", edit_post_url(@post) %></li>
+      <% end %>
     </ul>
   </footer>
 </article>
