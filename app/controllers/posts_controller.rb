@@ -1,18 +1,22 @@
 class PostsController < ApplicationController
+  before_filter :new_post, only: [:create]
+
   load_and_authorize_resource
+
+  def new_post
+    @post = current_user.posts.new(post_params)
+    @post.images.new(image_params)
+  end
 
   def index
     @posts = Post.all
   end
   
   def new
-    @post = current_user.posts.new
+
   end
   
   def create
-    @post = current_user.posts.new(post_params)
-    @post.images.new(image_params)
-    
     if @post.save
       redirect_to @post, notice: "Success"
     else
@@ -22,16 +26,12 @@ class PostsController < ApplicationController
   end
   
   def show
-    @post = Post.find(params[:id])
   end
   
   def edit
-    @post = Post.find(params[:id])
   end
   
   def update
-    @post = Post.find(params[:id])
-    
     if @post.update(post_params)
       redirect_to @post
     else
@@ -41,7 +41,6 @@ class PostsController < ApplicationController
   end
   
   def destroy
-    @post = Post.find(params[:id])
     @post.destroy!
     redirect_to :root
   end
@@ -52,6 +51,6 @@ class PostsController < ApplicationController
   end
 
   def image_params
-    params.require(:image).permit(:file)
+    params.permit(:image).permit(:file)
   end
 end
