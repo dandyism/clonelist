@@ -11,6 +11,7 @@ class PostsController < ApplicationController
   
   def create
     @post = current_user.posts.new(post_params)
+    @post.images.new(image_params)
     
     if @post.save
       redirect_to @post, notice: "Success"
@@ -48,5 +49,9 @@ class PostsController < ApplicationController
   private
   def post_params
     params.require(:post).permit(:title, :description, :price, :location, :category_id)
+  end
+
+  def image_params
+    params.require(:image).permit(:file)
   end
 end
