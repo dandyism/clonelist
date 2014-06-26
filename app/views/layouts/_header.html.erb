@@ -1,12 +1,16 @@
 <header>
-  <% if signed_in? %>
-    [<%= current_user.email %>]
-    [<%= button_to 'sign out', destroy_user_session_url, method: :delete %>]
-  <% else %>
-    [<%= link_to 'account', new_user_session_url %>]
-  <% end %>
+  <nav>
+    <ul class="nav-list">
+    <% if signed_in? %>
+      <li><%= current_user.username %></li>
+      <li><%= button_to 'sign out', destroy_user_session_url, method: :delete %></li>
+    <% else %>
+      <li><%= link_to 'account', new_user_session_url %></li>
+    <% end %>
 
-  <% if can? :create, Post %>
-    [<%= link_to 'post', new_post_url %>]
-  <% end %>
+    <% if can? :create, Post %>
+      <li><%= link_to 'post', new_post_url %></li>
+    <% end %>
+    </ul>
+  </nav>
 </header>
