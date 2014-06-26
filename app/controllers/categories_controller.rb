@@ -32,8 +32,6 @@ class CategoriesController < ApplicationController
     end
 
     query = conditions.join(' OR ')
-    puts query
-    print values
     @category = Category.find(params[:id])
     @posts = @category.posts.where(query, *values)
   end
