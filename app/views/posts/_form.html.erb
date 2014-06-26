@@ -38,8 +38,13 @@
   <label for="post-description">post description</label>
   <textarea name="post[description]" id="post-description"></textarea>
 
-  <label for="post-image">image</label>
-  <input type="file" class="file" value="" name="image[file]">
+  <fieldset>
+    <legend>images</legend>
+    <% @post.images.each do |image| %>
+      <input type="hidden" name="images[<%= image.object_id %>][id]" value="<%= image.id %>">
+      <input type="file" class="file" value="" name="images[<%= image.object_id %>][file]">
+    <% end %>
+  </fieldset>
 
   <button>Post</button>
 </form>

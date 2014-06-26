@@ -5,7 +5,21 @@ class PostsController < ApplicationController
 
   def new_post
     @post = current_user.posts.new(post_params)
-    @post.images.new(image_params)
+    @post.images = image_params.map do |image_data|
+      unless image_data[:id].blank?
+        image = PostImage.find(image_data[:id])
+
+        if image_data[:file].blank?
+          image.destroy
+          next
+        end
+
+        image.update(image_data)
+        image
+      else
+        PostImage.new(image_data)
+      end
+    end.compact
   end
 
   def index
@@ -13,7 +27,7 @@ class PostsController < ApplicationController
   end
   
   def new
-
+    5.times { @post.images.build }
   end
   
   def create
@@ -51,6 +65,6 @@ class PostsController < ApplicationController
   end
 
   def image_params
-    params.permit(:image).permit(:file)
+    params.permit(images: [:file, :id]).require(:images).values
   end
 end
