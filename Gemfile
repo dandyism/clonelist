@@ -11,6 +11,8 @@ gem 'jbuilder', '~> 2.0'
 gem 'devise'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'cancan'
+gem 'paperclip'
+gem 'aws-sdk'
 
 group :development do
   gem 'spring'
