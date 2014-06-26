@@ -1,0 +1,6 @@
+User.create(email: "guest@example.com", password: "guestpassword")
+Category.create(name: "Housewares")
+Category.create(name: "Firearms")
+Category.create(name: "Toys")
+Category.create(name: "Food")
+Category.create(name: "Automotive")
