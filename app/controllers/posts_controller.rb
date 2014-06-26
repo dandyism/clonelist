@@ -44,7 +44,7 @@ class PostsController < ApplicationController
       if image_data[:id].present?
         image = PostImage.find(image_data[:id])
 
-        if image_data[:file].blank? || image_data[:_destroy]
+        if image_data[:_destroy]
           image.destroy
           next
         end
