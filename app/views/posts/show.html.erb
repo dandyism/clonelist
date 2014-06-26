@@ -19,5 +19,9 @@
       <li><%= time_ago_in_words(@post.created_at) %></li>
       <li><%= time_ago_in_words(@post.updated_at) %></li>
     </ul>
+
+    <ul class="post-management">
+      <li><%= link_to "edit", edit_post_url(@post) %></li>
+    </ul>
   </footer>
 </article>
