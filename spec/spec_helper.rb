@@ -16,8 +16,10 @@
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 
 require "capybara/rspec"
+require "paperclip/matchers"
 
 RSpec.configure do |config|
+  config.include Paperclip::Shoulda::Matchers
 # The settings below are suggested to provide a good initial experience
 # with RSpec, but feel free to customize to your heart's content.
 =begin
