@@ -1,6 +1,6 @@
 <% action = (post.persisted?) ? post : posts_url %>
 
-<form action="<%= action %>" method="post">
+<form action="<%= action %>" method="post" enctype="multipart/form-data">
   <input type="hidden"
          name="authenticity_token"
          value="<%= form_authenticity_token %>"
@@ -37,6 +37,9 @@
 
   <label for="post-description">post description</label>
   <textarea name="post[description]" id="post-description"></textarea>
-  
+
+  <label for="post-image">image</label>
+  <input type="file" class="file" value="" name="image[file]">
+
   <button>Post</button>
 </form>
