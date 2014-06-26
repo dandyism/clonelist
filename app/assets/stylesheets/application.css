@@ -15,6 +15,27 @@
  *= require_self
  */
 
+/* BUTTON RESET */
+
+/* FIXME: This should probably be somewhere else. This file is included last, so these reset
+ * styles might take priority over something else, and they should never do that.
+ */
+
+button,
+input[type="submit"] {
+  background: transparent;
+  border: 0;
+  box-sizing: content-box;
+  color: inherit;
+  display: inline-block;
+  font: inherit;
+  margin: 0;
+  outline: 0;
+  padding: 0;
+  -webkit-appearance: none;
+  width: auto;
+}
+
 /* CLEARFIX */
 
 .clearfix:after {
