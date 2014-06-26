@@ -5,4 +5,8 @@
   <% else %>
     [<%= link_to 'account', new_user_session_url %>]
   <% end %>
+
+  <% if can? :create, Post %>
+    [<%= link_to 'post', new_post_url %>]
+  <% end %>
 </header>
