@@ -13,6 +13,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'cancan'
 gem 'paperclip'
 gem 'aws-sdk'
+gem 'figaro'
 
 group :development do
   gem 'spring'
