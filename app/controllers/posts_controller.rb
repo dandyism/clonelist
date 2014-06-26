@@ -6,7 +6,7 @@ class PostsController < ApplicationController
   def new_post
     @post = current_user.posts.new(post_params)
     @post.images = image_params.map do |image_data|
-      unless image_data[:id].blank?
+      if image_data[:id].present?
         image = PostImage.find(image_data[:id])
 
         if image_data[:file].blank?
@@ -16,7 +16,7 @@ class PostsController < ApplicationController
 
         image.update(image_data)
         image
-      else
+      elsif image_data[:file].present?
         PostImage.new(image_data)
       end
     end.compact
