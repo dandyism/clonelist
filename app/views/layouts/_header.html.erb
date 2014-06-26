@@ -2,14 +2,14 @@
   <nav class="clearfix">
     <ul class="nav-list clearfix">
     <% if signed_in? %>
-      <li><%= current_user.username %></li>
-      <li><%= button_to 'sign out', destroy_user_session_url, method: :delete %></li>
+      <li class="nav-item"><%= current_user.username %></li>
+      <li class="nav-item"><%= button_to 'sign out', destroy_user_session_url, method: :delete %></li>
     <% else %>
-      <li><%= link_to 'account', new_user_session_url %></li>
+      <li class="nav-item"><%= link_to 'account', new_user_session_url %></li>
     <% end %>
 
     <% if can? :create, Post %>
-      <li><%= link_to 'post', new_post_url %></li>
+      <li class="nav-item"><%= link_to 'post', new_post_url %></li>
     <% end %>
     </ul>
   </nav>
