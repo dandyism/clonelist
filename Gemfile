@@ -10,7 +10,6 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'devise'
 gem 'sdoc', '~> 0.4.0',          group: :doc
-gem 'rails_12factor'
 gem 'factory_girl_rails'
 gem 'faker'
 gem 'cancan'
@@ -30,4 +29,8 @@ group :test do
   gem 'capybara'
   gem 'launchy'
   gem 'guard-rspec'
+end
+
+group :production do
+  gem 'rails_12factor'
 end
