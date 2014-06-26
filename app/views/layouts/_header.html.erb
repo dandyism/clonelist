@@ -1,6 +1,6 @@
 <header>
-  <nav>
-    <ul class="nav-list">
+  <nav class="clearfix">
+    <ul class="nav-list clearfix">
     <% if signed_in? %>
       <li><%= current_user.username %></li>
       <li><%= button_to 'sign out', destroy_user_session_url, method: :delete %></li>

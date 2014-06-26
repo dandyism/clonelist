@@ -14,3 +14,27 @@
  *= require_tree .
  *= require_self
  */
+
+.clearfix:after {
+  clear: both;
+  content: "";
+  display: block;
+}
+
+/* CONTAINER */
+
+.container {
+  margin: 0 auto;
+  max-width: 920px;
+  padding: 20px;
+}
+
+/* HEADER */
+
+.nav-list {
+  float: right;
+}
+
+.nav-list > li {
+  float: left;
+}
