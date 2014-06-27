@@ -29,6 +29,10 @@ input, button {
   -webkit-appearance: none;
 }
 
+input, label, button {
+  display: block;
+}
+
 /* BUTTON RESET */
 
 /* FIXME: This should probably be somewhere else. This file is included last, so these reset
