@@ -5,16 +5,16 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
   end
 
   def oauthorize(kind)
-    @user = find_for_oauth(kind, ENV["omniauth.auth"], current_user)
+    @user = find_for_oauth(kind, env["omniauth.auth"], current_user)
 
     if @user
       flash[:notice] = I18n.t "devise.omniauth_callbacks.success", kind: kind
-      session["devise.#{kind.downcase}_data"] = ENV["omniauth.auth"]
+      session["devise.#{kind.downcase}_data"] = env["omniauth.auth"]
       sign_in_and_redirect @user, event: :authentication
     end
   end
 
-  def find_for_oauth(kind, access_token, current_user)
+  def find_for_oauth(provider, access_token, current_user)
     user, email, uid, auth_attr = nil, nil, nil, {}
     first_name, last_name = nil, nil
 
@@ -51,7 +51,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
   end
 
   def find_for_oauth_by_uid(uid, provider)
-    auth = Authorizations.find_by(uid: uid, provider: provider)
+    auth = Authorization.find_by(uid: uid, provider: provider)
     auth.try(:user)
   end
 
