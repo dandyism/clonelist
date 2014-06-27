@@ -50,7 +50,9 @@ input[type="submit"] {
 .container {
   margin: 0 auto;
   max-width: 660px;
-  padding: 20px;
+  border: 1px solid darkgray;
+  border-top: 0;
+  border-bottom: 0;
 }
 
 /* HEADER */
@@ -125,4 +127,17 @@ form > .submit-button:active {
   background: darkblue;
   border-bottom: 0;
   bottom: -1px;
+}
+
+/* LISINGS */
+
+.item a {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: black;
+}
+
+.item a:hover {
+  background: #eee;
 }
