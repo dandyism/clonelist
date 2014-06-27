@@ -9,8 +9,14 @@
   padding: 10px;
   text-decoration: none;
   color: black;
+  border-bottom: 1px solid darkgray;
+}
+
+.category-item:last-child a {
+  border-bottom: 0;
 }
 
 .category-item a:hover {
-  background: #eee;
+  background: darkgray;
+  color: white;
 }
