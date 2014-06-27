@@ -142,7 +142,12 @@ form > .submit-button:active {
 input[type="text"],
 input[type="password"],
 input[type="email"],
-input[type="search"] {
+input[type="search"],
+input[type="checkbox"] {
   border: 1px solid black;
   padding: 3px;
+}
+
+input[type="checkbox"] {
+  display: inline-block;
 }
