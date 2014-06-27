@@ -4,4 +4,7 @@
   <% if can? :update, post %>
     <%= link_to "edit", edit_post_url(post) %>
   <% end %>
+  <% if can? :destroy, post %>
+    <%= link_to "delete", post_confirm_delete_url(post) %>
+  <% end %>
 </li>

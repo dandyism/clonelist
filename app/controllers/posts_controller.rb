@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   before_filter :authenticate_user!, only: [:manage]
 
   load_and_authorize_resource
-  skip_authorize_resource only: :manage
+  skip_authorize_resource only: [:manage, :confirm_delete]
 
   def new_post
     @post = current_user.posts.new(post_params)
@@ -73,6 +73,11 @@ class PostsController < ApplicationController
 
   def manage
     @posts = current_user.posts
+  end
+
+  def confirm_delete
+    @post = Post.find(params[:id])
+    authorize! :destroy, @post
   end
   
   private
