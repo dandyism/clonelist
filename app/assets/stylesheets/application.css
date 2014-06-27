@@ -15,6 +15,20 @@
  *= require_self
  */
 
+/* FORM RESET */
+
+input, button {
+  background: transparent;
+  border: 0;
+  box-sizing: content-box;
+  color: inherit;
+  font: inherit;
+  margin: 0;
+  outline: 0;
+  padding: 0;
+  -webkit-appearance: none;
+}
+
 /* BUTTON RESET */
 
 /* FIXME: This should probably be somewhere else. This file is included last, so these reset
@@ -23,17 +37,8 @@
 
 button,
 input[type="submit"] {
-  background: transparent;
-  border: 0;
-  box-sizing: content-box;
-  color: inherit;
   cursor: pointer;
   display: inline-block;
-  font: inherit;
-  margin: 0;
-  outline: 0;
-  padding: 0;
-  -webkit-appearance: none;
   width: auto;
 }
 
