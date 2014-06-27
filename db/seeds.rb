@@ -1,6 +1,10 @@
 User.create(username: "guest", email: "guest@example.com", password: "guestpassword")
+User.create(username: "greg", email: "greg@example.com", password: "letmein")
+User.create(username: "nick", email: "nick@example.com", password: "letmein")
+User.create(username: "jim", email: "jim@example.com", password: "letmein")
+
 Category.create(name: "Housewares")
-Category.create(name: "Firearms")
-Category.create(name: "Toys")
 Category.create(name: "Food")
-Category.create(name: "Automotive")
+Category.create(name: "Toys")
+Category.create(name: "Clothing")
+Category.create(name: "Military Surplus")
