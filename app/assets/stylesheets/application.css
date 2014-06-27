@@ -138,3 +138,11 @@ form > .submit-button:active {
   border-bottom: 0;
   bottom: -1px;
 }
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="search"] {
+  border: 1px solid black;
+  padding: 3px;
+}
