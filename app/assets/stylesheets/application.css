@@ -87,37 +87,3 @@ body {
   font-family: 'Rosario', sans-serif;
   font-size: 18px;
 }
-
-/* FORMS */
-
-form > .submit-button {
-  position: relative;
-  padding: 10px;
-  border-bottom: 2px solid darkblue;
-  background: blue;
-  color: white;
-}
-
-form > .submit-button:hover {
-  background: rgb(0, 136, 255);
-  color: #eee;
-}
-
-form > .submit-button:active {
-  background: darkblue;
-  border-bottom: 0;
-  bottom: -1px;
-}
-
-input[type="text"],
-input[type="password"],
-input[type="email"],
-input[type="search"],
-input[type="checkbox"] {
-  border: 1px solid black;
-  padding: 3px;
-}
-
-input[type="checkbox"] {
-  display: inline-block;
-}
