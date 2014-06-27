@@ -1,3 +1,37 @@
 // Place all the styles related to the posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* IMAGES */
+
+.post-images {
+  position: relative;
+  height: 300px;
+}
+
+.post-image {
+  background: white;
+  height: 100%;
+  width: 100%;
+  display: none;
+  position: absolute;
+  left: 0;
+}
+
+.post-images > li:first-child > .post-image {
+  display: block;
+}
+
+.post-images > li {
+  float: left;
+}
+
+.post-image > img {
+  max-width: 100%;
+  max-height: 100%;
+  height: auto;
+}
+
+.post-images > li:hover > .post-image {
+  display: block;
+}

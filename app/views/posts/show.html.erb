@@ -1,8 +1,19 @@
 <article class="post">
   <h2 class="post-title"><%= @post.title %></h2>
 
-  <% @post.images.each do |image| %>
-    <img src="<%= image.url %>" alt="">
+  <% if @post.images %>
+    <ul class="post-images clearfix">
+    <% @post.images.reverse.each do |image| %>
+      <li>
+        <div class="post-thumbnail">
+          <img src="<%= image.url(:thumbnail) %>" alt="">
+        </div>
+        <div class="post-image">
+          <img src="<%= image.url %>" alt="">
+        </div>
+      </li>
+    <% end %>
+    </ul>
   <% end %>
 
   <ul>

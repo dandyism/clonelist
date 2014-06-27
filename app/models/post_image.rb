@@ -7,8 +7,8 @@ class PostImage < ActiveRecord::Base
 
   belongs_to :post
 
-  def url
-    file.url
+  def url(*args)
+    file.url(*args)
   end
 
   def filename
