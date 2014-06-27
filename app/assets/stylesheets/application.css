@@ -129,7 +129,7 @@ form > .submit-button {
 }
 
 form > .submit-button:hover {
-  background: lightblue;
+  background: rgb(0, 136, 255);
   color: #eee;
 }
 
