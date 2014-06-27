@@ -14,6 +14,9 @@ gem 'cancan'
 gem 'paperclip'
 gem 'aws-sdk'
 gem 'figaro'
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'uuidtools'
 
 group :development do
   gem 'spring'
