@@ -5,13 +5,14 @@
       <li class="nav-item"><%= link_to 'categories', categories_url %></li>
     <% if signed_in? %>
       <li class="nav-item"><%= link_to current_user.username, edit_user_registration_url %></li>
+      <li class="nav-item"><%= link_to "manage ads", manage_posts_url %></li>
       <li class="nav-item"><%= button_to 'sign out', destroy_user_session_url, method: :delete %></li>
     <% else %>
       <li class="nav-item"><%= link_to 'account', new_user_session_url %></li>
     <% end %>
 
     <% if can? :create, Post %>
-      <li class="nav-item"><%= link_to 'post', new_post_url %></li>
+      <li class="nav-item"><%= link_to 'post ad', new_post_url %></li>
     <% end %>
     </ul>
   </nav>

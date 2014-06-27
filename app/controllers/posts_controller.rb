@@ -1,7 +1,9 @@
 class PostsController < ApplicationController
   before_filter :new_post, only: [:create]
+  before_filter :authenticate_user!, only: [:manage]
 
   load_and_authorize_resource
+  skip_authorize_resource only: :manage
 
   def new_post
     @post = current_user.posts.new(post_params)
@@ -67,6 +69,10 @@ class PostsController < ApplicationController
   def destroy
     @post.destroy!
     redirect_to :root
+  end
+
+  def manage
+    @posts = current_user.posts
   end
   
   private
