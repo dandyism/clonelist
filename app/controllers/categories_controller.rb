@@ -13,8 +13,8 @@ class CategoriesController < ApplicationController
 
       keywords.each do |keyword|
         conditions << <<-SQL
-          UPPER(posts.title) LIKE UPPER(?) 
-          OR UPPER(posts.description) LIKE UPPER(?)
+          (UPPER(posts.title) LIKE UPPER(?) 
+          OR UPPER(posts.description) LIKE UPPER(?))
         SQL
 
         values += ["%#{keyword}%"] * 2 
@@ -31,7 +31,7 @@ class CategoriesController < ApplicationController
       values << params[:max_price]
     end
 
-    query = conditions.join(' OR ')
+    query = conditions.join(' AND ')
     @category = Category.find(params[:id])
     @posts = @category.posts.where(query, *values)
   end
