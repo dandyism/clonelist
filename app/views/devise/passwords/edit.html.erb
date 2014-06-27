@@ -10,7 +10,7 @@
   <%= f.label :password_confirmation, "Confirm new password" %>
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
 
-  <%= f.submit "Change my password" %>
+  <%= f.submit "Change my password", class: "submit-button" %>
 <% end %>
 
 <%= render "devise/shared/links" %>

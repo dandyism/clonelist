@@ -6,7 +6,7 @@
   <%= f.label :email %>
   <%= f.email_field :email, autofocus: true %>
 
-  <%= f.submit "Send me reset password instructions" %>
+  <%= f.submit "Send me reset password instructions", class: "submit-button" %>
 <% end %>
 
 <%= render "devise/shared/links" %>
