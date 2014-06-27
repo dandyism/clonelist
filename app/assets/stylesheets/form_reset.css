@@ -1,0 +1,28 @@
+/* FORM RESET */
+
+input, button {
+  background: transparent;
+  border: 0;
+  box-sizing: content-box;
+  color: inherit;
+  font: inherit;
+  margin: 0;
+  outline: 0;
+  padding: 0;
+  -webkit-appearance: none;
+}
+
+input, label, button {
+  display: block;
+}
+
+/* BUTTON RESET */
+
+button,
+input[type="submit"] {
+  cursor: pointer;
+  display: inline-block;
+  width: auto;
+}
+
+

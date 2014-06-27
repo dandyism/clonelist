@@ -11,40 +11,10 @@
  * file per style scope.
  *
  *= require reset
+ *= require form_reset
  *= require_tree .
  *= require_self
  */
-
-/* FORM RESET */
-
-input, button {
-  background: transparent;
-  border: 0;
-  box-sizing: content-box;
-  color: inherit;
-  font: inherit;
-  margin: 0;
-  outline: 0;
-  padding: 0;
-  -webkit-appearance: none;
-}
-
-input, label, button {
-  display: block;
-}
-
-/* BUTTON RESET */
-
-/* FIXME: This should probably be somewhere else. This file is included last, so these reset
- * styles might take priority over something else, and they should never do that.
- */
-
-button,
-input[type="submit"] {
-  cursor: pointer;
-  display: inline-block;
-  width: auto;
-}
 
 /* CLEARFIX */
 
