@@ -92,9 +92,37 @@ h1, h2, h3 {
   font-family: "museo-sans-condensed",sans-serif;
 }
 
+.main-logo {
+  width: 200px;
+  height: auto;
+  margin: 0 auto;
+  display: block;
+}
+
 /* FONT */
 
 body {
   font-family: 'Rosario', sans-serif;
   font-size: 18px;
+}
+
+/* FORMS */
+
+form > .submit-button {
+  position: relative;
+  padding: 10px;
+  border-bottom: 2px solid darkblue;
+  background: blue;
+  color: white;
+}
+
+form > .submit-button:hover {
+  background: lightblue;
+  color: #eee;
+}
+
+form > .submit-button:active {
+  background: darkblue;
+  border-bottom: 0;
+  bottom: -1px;
 }
