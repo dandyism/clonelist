@@ -137,16 +137,3 @@ form > .submit-button:active {
   border-bottom: 0;
   bottom: -1px;
 }
-
-/* LISINGS */
-
-.item a {
-  display: block;
-  padding: 10px;
-  text-decoration: none;
-  color: black;
-}
-
-.item a:hover {
-  background: #eee;
-}

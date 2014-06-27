@@ -6,7 +6,7 @@
     <% @post.images.reverse.each do |image| %>
       <li>
         <div class="post-thumbnail">
-          <img src="<%= image.url(:thumbnail) %>" alt="">
+          <img src="<%= image.file.url(:thumbnail) %>" alt="">
         </div>
         <div class="post-image">
           <img src="<%= image.url %>" alt="">
