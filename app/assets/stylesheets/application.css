@@ -77,3 +77,9 @@ input[type="submit"] {
 .nav-item input[type="submit"]:hover {
   color: black;
 }
+
+/* FONT */
+
+body {
+  font-family: 'Rosario', sans-serif;
+}
