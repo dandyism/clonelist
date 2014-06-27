@@ -78,6 +78,12 @@ input[type="submit"] {
   color: black;
 }
 
+h1 {
+  font-size: 60px;
+  font-family: 'Museo Sans Condensed', sans-serif;
+  text-align: center;
+}
+
 /* FONT */
 
 body {
