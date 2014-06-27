@@ -49,7 +49,7 @@ input[type="submit"] {
 
 .container {
   margin: 0 auto;
-  max-width: 920px;
+  max-width: 660px;
   padding: 20px;
 }
 
@@ -80,12 +80,21 @@ input[type="submit"] {
 
 h1 {
   font-size: 60px;
-  font-family: 'Museo Sans Condensed', sans-serif;
   text-align: center;
+}
+
+h2 {
+  font-size: 30px;
+  line-height: 1.5em;
+}
+
+h1, h2, h3 {
+  font-family: "museo-sans-condensed",sans-serif;
 }
 
 /* FONT */
 
 body {
   font-family: 'Rosario', sans-serif;
+  font-size: 18px;
 }
