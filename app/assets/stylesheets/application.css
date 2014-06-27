@@ -66,6 +66,14 @@ input[type="submit"] {
 .nav-item a,
 .nav-item button,
 .nav-item input[type="submit"] {
-  padding: 10px;
+  color: darkgray;
   display: inline-block;
+  padding: 10px;
+  text-decoration: none;
+}
+
+.nav-item a:hover,
+.nav-item button:hover,
+.nav-item input[type="submit"]:hover {
+  color: black;
 }
