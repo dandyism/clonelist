@@ -2,15 +2,20 @@
   <% action = request.fullpath %>
 <% end %>
 
-<form class="search" action="<%= action %>" method="get">
-  <label for="search-keywords">Keywords</label>
-  <input id="search-keywords" type="search" value="" name="keywords">
+<form class="search clearfix" action="<%= action %>" method="get">
+  <div class="search-wrapper clearfix">
+    <label for="search-keywords">Keywords</label>
+    <input id="search-keywords" class="search-keywords" type="search" value="" name="keywords">
 
-  <label for="search-min-price">minimum price</label>
-  <input id="search-min-price" class="search-price-min" type="text" value="" name="min_price" placeholder="min">
+    <button class="search-button">Search</button>
+  </div>
 
-  <label for="search-max-price">maximum price</label>
-  <input id="search-max-price" class="search-price-max" type="text" value="" name="max_price" placeholder="max">
+  <fieldset class="search-price clearfix">
+    <legend>price</legend>
+    <label for="search-min-price">minimum price</label>
+    <input id="search-min-price" type="text" value="" name="min_price" placeholder="min">
 
-  <button class="search-button">Search</button>
+    <label for="search-max-price">maximum price</label>
+    <input id="search-max-price" type="text" value="" name="max_price" placeholder="max">
+  </fieldset>
 </form>

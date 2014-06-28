@@ -1,0 +1,45 @@
+.search {
+  fieldset, legend {
+    display: inline-block;
+  }
+
+  label {
+    display: none;
+  }
+}
+
+.search-keywords {
+  width: 510px;
+  float: left;
+  height: 100%;
+}
+
+.search-button {
+  width: 120px;
+  height: 100%;
+  float: right;
+  background: white;
+}
+
+.search-wrapper {
+  height: 36px;
+  padding: 5px;
+  padding-left: 10px;
+  background: #eee;
+  border-radius: 3px;
+}
+
+.search-price {
+  display: inline-block;
+  float: right;
+
+  input {
+    width: 48px;
+    border: 1px solid black;
+    float: left;
+
+    &:last-child {
+      margin-left: 5px;
+    }
+  }
+}
