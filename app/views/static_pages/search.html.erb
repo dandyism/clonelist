@@ -1,5 +1,7 @@
 <%= render partial: 'form' %>
 
+<%= paginate @posts %>
+
 <table class="posts-table">
   <thead>
     <tr>
@@ -13,3 +15,5 @@
     <%= render (@posts || @category.posts) %>
   </tbody>
 </table>
+
+<%= paginate @posts %>

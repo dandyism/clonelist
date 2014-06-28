@@ -9,5 +9,7 @@ class StaticPagesController < ApplicationController
     if params[:max_price].present?
       @posts = @posts.where('price <= ?', params[:max_price])
     end
+
+    @posts = @posts.page(params[:page])
   end
 end
