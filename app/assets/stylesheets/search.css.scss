@@ -1,3 +1,11 @@
+@mixin height-and-color {
+  height: 36px;
+  background: #7f8c8d;
+  color: white;
+  box-shadow: inset 0 0 5px black;
+  border-radius: 3px;
+}
+
 .search {
   fieldset, legend {
     display: inline-block;
@@ -19,23 +27,24 @@
   height: 100%;
   float: right;
   background: white;
+  color: black;
+  box-shadow: 0 0 5px black;
 }
 
 .search-wrapper {
-  height: 36px;
+  @include height-and-color;
+
   padding: 5px;
   padding-left: 10px;
-  background: #eee;
-  border-radius: 3px;
 }
 
 .search-price {
+  @include height-and-color;
+
   display: inline-block;
   float: left;
   margin: 10px 5px;
   width: 48px;
-  height: 36px;
-  background: #eee;
   padding: 0 5px;
 }
 
