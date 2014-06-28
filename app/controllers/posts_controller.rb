@@ -73,6 +73,7 @@ class PostsController < ApplicationController
 
   def manage
     @posts = current_user.posts
+    render :index
   end
 
   def confirm_delete
