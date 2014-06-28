@@ -17,6 +17,7 @@ gem 'figaro'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'uuidtools'
+gem 'pg_search'
 
 group :development do
   gem 'spring'
