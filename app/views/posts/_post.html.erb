@@ -1,10 +1,11 @@
 <li class="item post-item">
-  <%= link_to post.title, post %>
-  <%= "#{number_to_currency(post.price)} #{post.location}" %>
-  <% if can? :update, post %>
-    <%= link_to "edit", edit_post_url(post) %>
-  <% end %>
-  <% if can? :destroy, post %>
-    <%= link_to "delete", post_confirm_delete_url(post) %>
-  <% end %>
+  <ul class="post-item-details">
+    <li><%= link_to post.title, post %></li>
+    <li><%= "#{number_to_currency(post.price)} #{post.location}" %></li>
+  </ul>
+
+  <span class="post-item-management-links">
+      <%= link_to "edit", edit_post_url(post) if can? :update, post %>
+      <%= link_to "delete", post_confirm_delete_url(post) if can? :destroy, post %>
+  </span>
 </li>
