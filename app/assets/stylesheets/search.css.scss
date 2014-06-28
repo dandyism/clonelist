@@ -31,15 +31,17 @@
 
 .search-price {
   display: inline-block;
-  float: right;
+  float: left;
+  margin: 10px 5px;
+  width: 48px;
+  height: 36px;
+  background: #eee;
+  padding: 0 5px;
+}
 
-  input {
-    width: 48px;
-    border: 1px solid black;
-    float: left;
-
-    &:last-child {
-      margin-left: 5px;
-    }
-  }
+.search-price-label {
+  margin: 10px;
+  float: left;
+  height: 36px;
+  line-height: 36px;
 }
