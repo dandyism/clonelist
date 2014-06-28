@@ -1,15 +1,29 @@
 <form class="search clearfix" action="<%= search_url %>" method="get">
   <div class="search-wrapper clearfix">
     <label for="search-keywords">Keywords</label>
-    <input id="search-keywords" class="search-keywords" autocomplete="off" type="search" value="" name="keywords">
+    <input id="search-keywords" class="search-keywords"
+    autocomplete="off"
+    type="search"
+    value="<%= params[:keywords] %>"
+    name="keywords">
 
     <button class="search-button">Search</button>
   </div>
 
   <span class="search-price-label">price</span>
   <label for="search-min-price">minimum price</label>
-  <input id="search-min-price" class="search-price" autocomplete="off" type="text" value="" name="min_price" placeholder="min">
+  <input id="search-min-price" class="search-price"
+    autocomplete="off"
+    type="text"
+    value="<%= params[:min_price] %>"
+    name="min_price"
+    placeholder="min">
 
   <label for="search-max-price">maximum price</label>
-  <input id="search-max-price" class="search-price" autocomplete="off" type="text" value="" name="max_price" placeholder="max">
+  <input id="search-max-price" class="search-price"
+    autocomplete="off"
+    type="text"
+    value="<%= params[:max_price] %>"
+    name="max_price"
+    placeholder="max">
 </form>
