@@ -16,6 +16,31 @@
     </ul>
   <% end %>
 
+  <div id="map"></div>
+
+  <script type="text/javascript">
+    var geocoder = L.mapbox.geocoder('redacted.ikmmj3gd'),
+        map = L.mapbox.map('map', 'redacted.ikmmj3gd');
+
+    var showMap = function(err, data) {
+      if (data.latlng) {
+        map.setView([data.latlng[0], data.latln[1]], 13);
+        L.mapbox.featureLayer({
+          type: 'Feature',
+          geometry: {
+            type: 'Point',
+            coordinates: [
+              data.latlng[1],
+              data.latlng[0]
+            ]
+          }
+        }).addTo(map);
+      }
+    }
+
+    geocoder.query('<%= @post.location %>', showMap);
+  </script>
+
   <ul>
     <li><%= number_to_currency(@post.price) %></li>
     <li><%= @post.location %></li>
