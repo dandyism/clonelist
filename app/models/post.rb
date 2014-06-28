@@ -9,4 +9,8 @@ class Post < ActiveRecord::Base
 
   include PgSearch
   pg_search_scope :search_by_keywords, against: [:title, :description]
+
+  def location
+    [address_1, address_2, city, region, postalcode].compact.join(', ')
+  end
 end
