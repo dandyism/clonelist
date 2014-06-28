@@ -1,8 +1,4 @@
-<% unless defined? action %>
-  <% action = request.fullpath %>
-<% end %>
-
-<form class="search clearfix" action="<%= action %>" method="get">
+<form class="search clearfix" action="<%= search_url %>" method="get">
   <div class="search-wrapper clearfix">
     <label for="search-keywords">Keywords</label>
     <input id="search-keywords" class="search-keywords" autocomplete="off" type="search" value="" name="keywords">
