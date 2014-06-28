@@ -24,7 +24,7 @@
 
     var showMap = function(err, data) {
       if (data.latlng) {
-        map.setView([data.latlng[0], data.latln[1]], 13);
+        map.setView([data.latlng[0], data.latlng[1]], 13);
         L.mapbox.featureLayer({
           type: 'Feature',
           geometry: {
