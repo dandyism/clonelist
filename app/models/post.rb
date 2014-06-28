@@ -6,4 +6,7 @@ class Post < ActiveRecord::Base
   belongs_to :category
 
   has_many :images, class_name: "PostImage"
+
+  include PgSearch
+  pg_search_scope :search_by_keywords, against: [:title, :description]
 end
