@@ -31,6 +31,10 @@
   box-shadow: 0 0 5px black;
 }
 
+.search-button:hover {
+  opacity: 0.8;
+} 
+
 .search-wrapper {
   @include height-and-color;
 
