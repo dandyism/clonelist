@@ -39,11 +39,35 @@
           value="<%= post.price %>"
           id="post-price">
 
-  <label  for="post-location">location</label>
+  <label  for="post-address1">Address 1</label>
   <input  type="text"
-          name="post[location]"
-          value="<%= post.location %>"
-          id="post-location">
+          name="post[address_1]"
+          value="<%= post.address_1 %>"
+          id="post-address1">
+
+  <label  for="post-address1">Address 2</label>
+  <input  type="text"
+          name="post[address_2]"
+          value="<%= post.address_2 %>"
+          id="post-address2">
+
+  <label  for="post-city">City</label>
+  <input  type="text"
+          name="post[city]"
+          value="<%= post.city %>"
+          id="post-city">
+
+  <label  for="post-region">State/Provice/Region</label>
+  <input  type="text"
+          name="post[region]"
+          value="<%= post.region %>"
+          id="post-region">
+
+  <label  for="post-postalcode">ZIP/Postal Code</label>
+  <input  type="text"
+          name="post[postalcode]"
+          value="<%= post.postalcode %>"
+          id="post-postalcode">
 
   <label for="post-description">post description</label>
   <textarea name="post[description]" id="post-description"><%= post.description %></textarea>
