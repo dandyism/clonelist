@@ -1,11 +1,12 @@
-<li class="item post-item">
-  <ul class="post-item-details">
-    <li><%= link_to post.title, post %></li>
-    <li><%= "#{number_to_currency(post.price)} #{post.location}" %></li>
-  </ul>
+<tr>
+  <td class="post-title-data">
+    <%= link_to post.title, post %>
+    <span class="post-item-management-links">
+        <%= link_to "edit", edit_post_url(post) if can? :update, post %>
+        <%= link_to "delete", post_confirm_delete_url(post) if can? :destroy, post %>
+    </span>
+  </td>
 
-  <span class="post-item-management-links">
-      <%= link_to "edit", edit_post_url(post) if can? :update, post %>
-      <%= link_to "delete", post_confirm_delete_url(post) if can? :destroy, post %>
-  </span>
-</li>
+  <td class="post-price-data"><%= number_to_currency(post.price) %></td>
+  <td class="post-location-data"><%= post.location %></td>
+</tr>

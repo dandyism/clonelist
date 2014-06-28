@@ -35,3 +35,43 @@
 .post-images > li:hover > .post-image {
   display: block;
 }
+
+/* LISTINGS */
+
+.posts-table {
+  width: 100%;
+
+  thead {
+    text-align: left;
+  }
+
+  td {
+    padding: 10px 0px;
+    border-bottom: 1px dashed black;
+  }
+
+  a {
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.post-item-management-links {
+  float: right;
+  margin: 0 10px;
+}
+
+.post-title-data {
+  width: 50%;
+}
+
+.post-price-data {
+  width: 10%;
+}
+
+.post-location-data {
+  width: 20%;
+}

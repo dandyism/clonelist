@@ -1,5 +1,15 @@
 <%= render partial: 'shared/search' %>
 
-<ul class="list post-list">
-  <%= render (@posts || @category.posts) %>
-</ul>
+<table class="posts-table">
+  <thead>
+    <tr>
+      <th>title</th>
+      <th>price</th>
+      <th>location</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%= render (@posts || @category.posts) %>
+  </tbody>
+</table>
