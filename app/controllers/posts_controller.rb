@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  respond_to :html, :json
+
   before_filter :get_category, only: [:index]
   before_filter :new_post, only: [:create]
   before_filter :authenticate_user!, only: [:manage]
@@ -18,6 +20,7 @@ class PostsController < ApplicationController
   def index
     @posts = @category.try(:posts)
     @posts ||= Post.all
+    respond_with(@posts)
   end
   
   def new
