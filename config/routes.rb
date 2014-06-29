@@ -1,11 +1,15 @@
 Rails.application.routes.draw do
   root to: 'categories#index'
-  resources :posts
+
   get 'manage', to: 'posts#manage', as: :manage_posts
   get 'posts/:id/confirm_delete', to: 'posts#confirm_delete', as: :post_confirm_delete
   get 'search', to: 'static_pages#search', as: :search
 
-  resources :categories
+  resources :categories do
+    resources :posts, shallow: true
+  end
+
+  resources :posts
 
   devise_for :users, controllers: {
     registrations: "users/registrations",
