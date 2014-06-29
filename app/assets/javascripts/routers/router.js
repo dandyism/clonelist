@@ -19,12 +19,11 @@ Clonelist.Routers.Router = Backbone.Router.extend({
 
   showCategory: function(id) {
     var router = this;
-    var category = new Clonelist.Models.Category;
-    category = this.categories.get(id);
+    var category = this.categories.get(id);
 
-    if (category.isNew()) { 
+    if (!category) { 
+      category = new Clonelist.Models.Category({ id: id });
       category.fetch({
-        id: 1,
         success: function() {
           router.categories.add(category);
         }
