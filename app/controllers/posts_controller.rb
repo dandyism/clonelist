@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_filter :get_category
+  before_filter :get_category, only: [:index]
   before_filter :new_post, only: [:create]
   before_filter :authenticate_user!, only: [:manage]
 
