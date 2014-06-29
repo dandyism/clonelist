@@ -9,8 +9,6 @@ Rails.application.routes.draw do
     resources :posts, shallow: true
   end
 
-  resources :posts
-
   devise_for :users, controllers: {
     registrations: "users/registrations",
     omniauth_callbacks: "omniauth_callbacks"
