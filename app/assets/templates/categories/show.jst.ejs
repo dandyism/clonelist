@@ -1,4 +1,4 @@
-<h2><%= category.name %></h2>
+<h2><%= category.escape('name') %></h2>
 
 <table class="posts-table">
   <thead>
@@ -11,9 +11,9 @@
 
   <tbody>
   <% _(category.posts).each(function(post) { %>
-    <td class="post-title-data"><a href="#<%= post.url() %>"><%= post.title %></a></td>
-    <td class="post-price-data"><%= post.price %></td>
-    <td class="post-location-data"><%= post.location %></td>
+    <td class="post-title-data"><a href="#<%= post.url() %>"><%= post.escape('title') %></a></td>
+    <td class="post-price-data"><%= post.escape('price') %></td>
+    <td class="post-location-data"><%= post.escape('location') %></td>
   <% }); %>
   </tbody>
 </table>
