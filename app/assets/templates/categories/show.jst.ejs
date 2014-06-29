@@ -1,0 +1,19 @@
+<h2><%= category.name %></h2>
+
+<table class="posts-table">
+  <thead>
+    <tr>
+      <th>title</th>
+      <th>price</th>
+      <th>location</th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% category.posts.each(function(post) { %>
+    <td class="post-title-data"><a href="#<%= post.url() %>"><%= post.title %></a></td>
+    <td class="post-price-data"><%= post.price %></td>
+    <td class="post-location-data"><%= post.location %></td>
+  <% }); %>
+  </tbody>
+</table>
