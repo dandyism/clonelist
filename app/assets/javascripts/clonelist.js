@@ -13,5 +13,5 @@ window.Clonelist = {
 };
 
 $(document).ready(function(){
-  Clonelist.initialize();
+  Clonelist.initialize($('#content'));
 });
