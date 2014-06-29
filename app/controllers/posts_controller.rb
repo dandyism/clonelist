@@ -20,7 +20,6 @@ class PostsController < ApplicationController
   def index
     @posts = @category.try(:posts)
     @posts ||= Post.all
-    respond_with(@posts)
   end
   
   def new
