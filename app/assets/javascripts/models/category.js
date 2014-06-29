@@ -9,9 +9,7 @@ Clonelist.Models.Category = Backbone.Model.extend({
   },
 
   parse: function(response) {
-    console.log(response);
     if (response.posts) { 
-      alert("GOT IT");
       this.posts().set(response.posts, { parse: true });
       delete response.posts;
     }
