@@ -1,16 +1,23 @@
 class PostsController < ApplicationController
+  before_filter :get_category
   before_filter :new_post, only: [:create]
   before_filter :authenticate_user!, only: [:manage]
 
   load_and_authorize_resource
   skip_authorize_resource only: [:manage, :confirm_delete]
 
+  def get_category
+    @category = Category.find(params[:category_id])
+  end
+
   def new_post
     @post = current_user.posts.new(post_params)
+    @post.category = @category
   end
 
   def index
-    @posts = Post.all
+    @posts = @category.try(:posts)
+    @posts ||= Post.all
   end
   
   def new
@@ -77,7 +84,6 @@ class PostsController < ApplicationController
   end
 
   def confirm_delete
-    @post = Post.find(params[:id])
     authorize! :destroy, @post
   end
   
