@@ -19,6 +19,7 @@ gem 'omniauth-facebook'
 gem 'uuidtools'
 gem 'pg_search'
 gem 'kaminari'
+gem 'backbone-on-rails'
 
 group :development do
   gem 'spring'
