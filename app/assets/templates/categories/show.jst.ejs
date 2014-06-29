@@ -10,7 +10,7 @@
   </thead>
 
   <tbody>
-  <% category.posts.each(function(post) { %>
+  <% _(category.posts).each(function(post) { %>
     <td class="post-title-data"><a href="#<%= post.url() %>"><%= post.title %></a></td>
     <td class="post-price-data"><%= post.price %></td>
     <td class="post-location-data"><%= post.location %></td>

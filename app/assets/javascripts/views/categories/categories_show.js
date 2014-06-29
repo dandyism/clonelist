@@ -4,7 +4,7 @@ Clonelist.Views.CategoryShow = Backbone.View.extend({
     this.listenTo(this.model, "sync", this.render);
   },
 
-  template: JST["templates/category"],
+  template: JST["categories/show"],
 
   render: function() {
     var rendered = this.template({ category: this.model });
