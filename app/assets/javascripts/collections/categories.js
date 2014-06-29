@@ -1,5 +1,5 @@
 Clonelist.Collections.Categories = Backbone.Collection.extend({
-  url: 'categories',
+  url: '/categories',
   model: Clonelist.Models.Category
 
 });

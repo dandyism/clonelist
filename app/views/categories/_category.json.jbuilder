@@ -1,8 +1,8 @@
-json.(category, :name, :created_at, :updated_at)
+json.(category, :id, :name, :created_at, :updated_at)
 
 posts ||= nil
 unless posts.nil?
-  posts.each do |post|
-    json.partial! 'post/post', post: post
+  json.posts(posts) do |post|
+    json.partial! 'posts/post', post: post
   end
 end
