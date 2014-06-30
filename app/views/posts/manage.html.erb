@@ -1,15 +1,3 @@
 <h2>Your Posts</h2>
 
-<table class="posts-table">
-  <thead>
-    <tr>
-      <th>title</th>
-      <th>price</th>
-      <th>location</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <%= render @posts %>
-  </tbody>
-</table>
+<%= render partial: 'shared/post_listing', locals: { posts: @posts }%>
