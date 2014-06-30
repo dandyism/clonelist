@@ -18,13 +18,14 @@
 
   <div id="map"></div>
 
-  <script>
+  <script type="text/javascript">
     var geocoder = L.mapbox.geocoder('redacted.ikmmj3gd'),
         map = L.mapbox.map('map', 'redacted.ikmmj3gd');
 
     var showMap = function(err, data) {
       if (data.latlng) {
         map.setView([data.latlng[0], data.latlng[1]], 13);
+
         L.mapbox.featureLayer({
           type: 'Feature',
           geometry: {
