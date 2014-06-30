@@ -17,15 +17,10 @@ class PostsController < ApplicationController
     @post.category = @category
   end
 
-  def index
-    @posts = @category.try(:posts)
-    @posts ||= Post.all
-  end
-  
   def new
     5.times { @post.images.build }
   end
-  
+
   def create
     @post.images = image_params.map do |image_data|
       if image_data[:file].present?
@@ -40,16 +35,16 @@ class PostsController < ApplicationController
       render :new
     end
   end
-  
+
   def show
   end
-  
+
   def edit
     until @post.images.length >= 5
       @post.images.build
     end
   end
-  
+
   def update
     @post.images = image_params.map do |image_data|
       if image_data[:id].present?
@@ -74,7 +69,7 @@ class PostsController < ApplicationController
       render :new
     end
   end
-  
+
   def destroy
     @post.destroy!
     redirect_to :root
@@ -82,13 +77,12 @@ class PostsController < ApplicationController
 
   def manage
     @posts = current_user.posts
-    render :index
   end
 
   def confirm_delete
     authorize! :destroy, @post
   end
-  
+
   private
   def post_params
     params.require(:post).permit(:title, :description, :price, :category_id,
