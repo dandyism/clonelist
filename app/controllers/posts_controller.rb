@@ -1,20 +1,14 @@
 class PostsController < ApplicationController
   respond_to :html, :json
 
-  before_filter :get_category, only: [:index]
   before_filter :new_post, only: [:create]
   before_filter :authenticate_user!, only: [:manage]
 
   load_and_authorize_resource
   skip_authorize_resource only: [:manage, :confirm_delete]
 
-  def get_category
-    @category = Category.find(params[:category_id])
-  end
-
   def new_post
     @post = current_user.posts.new(post_params)
-    @post.category = @category
   end
 
   def new
@@ -32,6 +26,7 @@ class PostsController < ApplicationController
       redirect_to @post, notice: "Success"
     else
       flash.now[:errors] = @post.errors.full_messages
+      5.times { @post.images.build }
       render :new
     end
   end
