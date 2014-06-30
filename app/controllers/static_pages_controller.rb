@@ -2,6 +2,10 @@ class StaticPagesController < ApplicationController
   def index
   end
 
+  def manage
+    @posts = current_user.posts.page(params[:page])
+  end
+
   def search
     @posts = Post.search_by_keywords(params[:keywords])
 

@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root to: 'static_pages#index'
 
-  get 'manage', to: 'posts#manage', as: :manage_posts
+  get 'manage', to: 'static_pages#manage', as: :manage_posts
   get 'posts/:id/confirm_delete', to: 'posts#confirm_delete', as: :post_confirm_delete
   get 'search', to: 'static_pages#search', as: :search
 
