@@ -2,7 +2,7 @@
   <%= image_tag "logo.png", class: "main-logo" %>
   <nav class="clearfix">
     <ul class="nav-list clearfix">
-      <li class="nav-item"><%= link_to 'categories', categories_url %></li>
+      <li class="nav-item"><%= link_to 'categories', root_url %></li>
     <% if signed_in? %>
       <li class="nav-item"><%= link_to current_user.username, edit_user_registration_url %></li>
       <li class="nav-item"><%= link_to "manage ads", manage_posts_url %></li>
