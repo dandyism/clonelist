@@ -1,0 +1,19 @@
+<%= render partial: 'search' %>
+
+<%= paginate @posts %>
+
+<table class="posts-table">
+  <thead>
+    <tr>
+      <th>title</th>
+      <th>price</th>
+      <th>location</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%= render @posts %>
+  </tbody>
+</table>
+
+<%= paginate @posts %>
