@@ -1,4 +1,7 @@
 class StaticPagesController < ApplicationController
+  def index
+  end
+
   def search
     @posts = Post.search_by_keywords(params[:keywords])
 
