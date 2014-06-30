@@ -6,7 +6,8 @@ Clonelist.Routers.Router = Backbone.Router.extend({
 
   routes: {
     '': 'index',
-    'categories/:id': 'showCategory'
+    'categories/:id': 'showCategory',
+    'posts/:id': 'showPost'
   },
 
   index: function() {
@@ -18,23 +19,31 @@ Clonelist.Routers.Router = Backbone.Router.extend({
   },
 
   showCategory: function(id) {
-    var router = this;
-    var category = this.categories.get(id);
-
-    if (!category) { 
-      category = new Clonelist.Models.Category({ id: id });
-      category.fetch({
-        success: function() {
-          router.categories.add(category);
-        }
-      });
-    }
+    var category = this._getOrFetch(this.categories, id);
 
     var showCategory = new Clonelist.Views.CategoryShow({
       model: category
     });
 
     this._swapView(showCategory);
+  },
+
+  showPost: function(id) {
+  },
+
+  _getOrFetch: function(collection, id) {
+    var model = collection.get(id);
+
+    if (!model) { 
+      model = new collection.model({ id: id });
+      model.fetch({
+        success: function() {
+          collection.add(model);
+        }
+      });
+    }
+
+    return model;
   },
 
   _swapView: function(view) {
