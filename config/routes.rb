@@ -5,10 +5,8 @@ Rails.application.routes.draw do
   get 'posts/:id/confirm_delete', to: 'posts#confirm_delete', as: :post_confirm_delete
   get 'search', to: 'static_pages#search', as: :search
 
-  resources :posts, only: [:new, :create]
-  resources :categories do
-    resources :posts, except: [:new, :create], shallow: true
-  end
+  resources :posts, except: :index
+  resources :categories
 
   devise_for :users, controllers: {
     registrations: "users/registrations",
