@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :messages
+
   root to: 'static_pages#index'
 
   get 'manage', to: 'static_pages#manage', as: :manage_posts

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140628205652) do
+ActiveRecord::Schema.define(version: 20140630211902) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,12 +29,26 @@ ActiveRecord::Schema.define(version: 20140628205652) do
   end
 
   create_table "categories", force: true do |t|
-    t.string   "name",       null: false
+    t.string   "name",        null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "category_id"
+  end
+
+  add_index "categories", ["category_id"], name: "index_categories_on_category_id", using: :btree
+  add_index "categories", ["name"], name: "index_categories_on_name", unique: true, using: :btree
+
+  create_table "messages", force: true do |t|
+    t.integer  "sender_id"
+    t.integer  "recipient_id"
+    t.string   "subject"
+    t.text     "body"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "categories", ["name"], name: "index_categories_on_name", unique: true, using: :btree
+  add_index "messages", ["recipient_id"], name: "index_messages_on_recipient_id", using: :btree
+  add_index "messages", ["sender_id"], name: "index_messages_on_sender_id", using: :btree
 
   create_table "post_images", force: true do |t|
     t.string   "file_file_name"
