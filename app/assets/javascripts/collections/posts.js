@@ -5,7 +5,7 @@ Clonelist.Collections.Posts = Backbone.Collection.extend({
 
   model: Clonelist.Models.Post,
 
-  initialize: function(options) {
+  initialize: function(models, options) {
     this.category = options.category;
   }
 
