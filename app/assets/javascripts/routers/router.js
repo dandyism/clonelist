@@ -34,7 +34,9 @@ Clonelist.Routers.Router = Backbone.Router.extend({
   _getOrFetch: function(collection, id) {
     var model = collection.get(id);
 
-    if (!model) { 
+    if (model) { 
+      model.fetch();
+    } else {
       model = new collection.model({ id: id });
       model.fetch({
         success: function() {
