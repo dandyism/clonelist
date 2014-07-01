@@ -41,5 +41,15 @@
     <li>created <%= post.escape('created_at') %> ago</li>
     <li>updated <%= post.escape('updated_at') %> ago</li>
   </ul>
+
+  <ul class="post-management">
+  <% if (post.can("update")) { %>
+    <a href="<%= post.url() + "/edit" %>">edit</a>
+  <% } %>
+
+  <% if (post.can("destroy")) { %>
+    <a href="<%= post.url() + "/confirm_delete" %>">delete</a>
+  <% } %>
+  </ul>
 </footer>
 </article>

@@ -32,6 +32,7 @@ class PostsController < ApplicationController
   end
 
   def show
+    @js_abilities = ability_to_array(current_ability)
   end
 
   def edit
