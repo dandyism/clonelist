@@ -1,22 +1,9 @@
-<div id="main-map"></div>
-
 <div id="backbone-content"></div>
 
 <script>
 
   $(document).ready(function(){
     Clonelist.initialize($('#backbone-content'));
-  });
-
-  $.ajax({
-    url: 'http://freegeoip.net/json/',
-    dataType: "json",
-    success: function (json) {
-      if (json) {
-        var map = L.mapbox.map('main-map', 'redacted.ikmmj3gd');
-        map.setView([json.latitude, json.longitude], 13);
-      }
-    }
   });
 
 </script>
