@@ -23,7 +23,7 @@ class PostsController < ApplicationController
     end.compact
 
     if @post.save
-      redirect_to @post, notice: "Success"
+      redirect_to @post, notice: I18n.t('post.create.success')
     else
       flash.now[:errors] = @post.errors.full_messages
       5.times { @post.images.build }
@@ -59,7 +59,7 @@ class PostsController < ApplicationController
     end.compact
 
     if @post.update(post_params)
-      redirect_to @post
+      redirect_to @post, notice: I18n.t('post.update.success')
     else
       flash.now[:errors] = @post.errors.full_messages
       render :new

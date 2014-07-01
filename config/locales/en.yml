@@ -22,3 +22,8 @@
 en:
   hello: "Hello world"
   app_name: "clonelist"
+  post:
+    create:
+      success: "We successfully created your post."
+    update:
+      success: "Your changes are saved."
