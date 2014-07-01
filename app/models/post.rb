@@ -8,7 +8,11 @@ class Post < ActiveRecord::Base
   has_many :images, class_name: "PostImage"
 
   include PgSearch
-  pg_search_scope :search_by_keywords, against: [:title, :description]
+  pg_search_scope :search_by_keywords,
+                  against: [:title, :description],
+                  using: {
+                    tsearch: { prefix: true }
+                  }
 
   def location
     [address_1, address_2, city, region, postalcode].compact.join(', ')
