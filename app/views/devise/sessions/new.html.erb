@@ -1,5 +1,9 @@
 <h2>Sign in</h2>
 
+<script id="autofill-data" type="application/json">
+{ "user_login": "guest", "user_password": "guestpassword" }
+</script>
+
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <%= f.label :login %>
   <%= f.text_field :login, autofocus: true %>
@@ -11,25 +15,8 @@
     <%= f.check_box :remember_me %> <%= f.label :remember_me %>
   <% end -%>
 
+  <button class="autofill">Demo User</button>
   <%= f.submit "Sign in", class: "submit-button" %>
 <% end %>
 
-<button class="demo-user-button">Demo User</button>
-
 <%= render "devise/shared/links" %>
-
-<script>
-  $(function() {
-    $('.demo-user-button').click(function() {
-      $('#user_login').val("guest");
-      $('#user_password').val("guestpassword");
-
-      var $button = $(this);
-      $button.toggleClass('loading');
-      $button.attr('disabled', true);
-
-      var form = $('#new_user');
-      form.submit();
-    });
-  });
-</script>

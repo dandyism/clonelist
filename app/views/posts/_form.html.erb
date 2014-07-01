@@ -1,5 +1,17 @@
 <% action = (post.persisted?) ? post_url(post) : posts_url %>
 
+<script id="autofill-data" type="application/json">
+{
+  "post-title": "Awesome Chair",
+  "post-price": "19.99",
+  "post-address1": "Sleepy Forest Hill",
+  "post-city": "Rock Run",
+  "post-region": "CT",
+  "post-postalcode": "06381-8734",
+  "post-description": "This chair is great for sitting!"
+}
+</script>
+
 <form action="<%= action %>" method="post" enctype="multipart/form-data">
   <% if flash[:errors] %>
     <ul class="form-errors">
@@ -86,5 +98,6 @@
     <% end %>
   </fieldset>
 
+  <button class="autofill">Auto Fill</button>
   <button class="submit-button">Post</button>
 </form>
