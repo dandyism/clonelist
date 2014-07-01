@@ -1,0 +1,19 @@
+<table class="posts-table">
+  <thead>
+    <tr>
+      <th>title</th>
+      <th>price</th>
+      <th>location</th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% posts.each(function(post) { %>
+    <tr>
+      <td class="post-title-data"><a href="#<%= post.url() %>"><%= post.escape('title') %></a></td>
+      <td class="post-price-data"><%= post.escape('price') %></td>
+      <td class="post-location-data"><%= post.escape('location') %></td>
+    </tr>
+  <% }); %>
+  </tbody>
+</table>
