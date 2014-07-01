@@ -14,4 +14,22 @@
   <%= f.submit "Sign in", class: "submit-button" %>
 <% end %>
 
+<button class="demo-user-button">Demo User</button>
+
 <%= render "devise/shared/links" %>
+
+<script>
+  $(function() {
+    $('.demo-user-button').click(function() {
+      $('#user_login').val("guest");
+      $('#user_password').val("guestpassword");
+
+      var $button = $(this);
+      $button.toggleClass('loading');
+      $button.attr('disabled', true);
+
+      var form = $('#new_user');
+      form.submit();
+    });
+  });
+</script>

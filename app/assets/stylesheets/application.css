@@ -86,3 +86,10 @@ body {
   font-family: 'Rosario', sans-serif;
   font-size: 18px;
 }
+
+/* EXTRAS */
+
+.loading {
+  background: url('loading.gif') no-repeat center;
+  color: transparent;
+}
