@@ -12,6 +12,15 @@ Clonelist.Views.CategoryShow = Backbone.View.extend({
   },
 
   filter: function(event) {
+    var keywords = $(event.target).val();
+
+    this.model.posts().fetch({
+      data: {
+        keywords: keywords
+      },
+
+      reset: true
+    });
   },
 
   render: function() {
