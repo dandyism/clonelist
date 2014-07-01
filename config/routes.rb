@@ -8,7 +8,9 @@ Rails.application.routes.draw do
   get 'search', to: 'static_pages#search', as: :search
 
   resources :posts, except: :index
-  resources :categories
+  resources :categories do
+    resources :posts, only: :index
+  end
 
   devise_for :users, controllers: {
     registrations: "users/registrations",
