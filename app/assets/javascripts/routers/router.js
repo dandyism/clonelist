@@ -36,6 +36,10 @@ Clonelist.Routers.Router = Backbone.Router.extend({
       model: post
     });
 
+    postShow.listenTo(postShow, "render", function() {
+      $('abbr.timeago').timeago();
+    });
+
     this._swapView(postShow);
   },
 
@@ -59,6 +63,6 @@ Clonelist.Routers.Router = Backbone.Router.extend({
   _swapView: function(view) {
     this._currentView && this._currentView.remove();
     this._currentView = view;
-    this.$rootEl.html(view.render().$el)
+    this.$rootEl.html(view.render().$el);
   }
 });

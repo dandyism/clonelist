@@ -38,8 +38,17 @@
 
 <footer class="post-footer">
   <ul class="post-timestamp">
-    <li>created <%= post.escape('created_at') %> ago</li>
-    <li>updated <%= post.escape('updated_at') %> ago</li>
+    <li>created
+      <abbr class="timeago" title="<%= post.escape('created_at') %>">
+        <%= post.escape('created_at') %>
+      </abbr>
+    </li>
+
+    <li>updated
+      <abbr class="timeago" title="<%= post.escape('created_at') %>">
+        <%= post.escape('updated_at') %>
+      </abbr>
+    </li>
   </ul>
 
   <ul class="post-management">

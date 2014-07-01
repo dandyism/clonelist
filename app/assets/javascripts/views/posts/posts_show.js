@@ -9,6 +9,7 @@ Clonelist.Views.PostShow = Backbone.View.extend({
   render: function() {
     var rendered = this.template({ post: this.model });
     this.$el.html(rendered);
+    this.trigger("render");
     return this;
   }
 
