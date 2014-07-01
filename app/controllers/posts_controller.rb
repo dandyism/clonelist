@@ -15,6 +15,15 @@ class PostsController < ApplicationController
     5.times { @post.images.build }
   end
 
+  def index
+    @category = Category.find(params[:category_id])
+    @posts = @category.posts.page(params[:page])
+
+    if params[:keywords].present?
+      @posts = @posts.search_by_keywords(params[:keywords])
+    end
+  end
+
   def create
     @post.images = image_params.map do |image_data|
       if image_data[:file].present?
