@@ -1,0 +1,45 @@
+<article class="post">
+<h2 class="post-title"><%= post.escape('title') %></h2>
+
+<div id="map"></div>
+
+<script type="text/javascript">
+  var geocoder = L.mapbox.geocoder('redacted.ikmmj3gd'),
+      map = L.mapbox.map('map', 'redacted.ikmmj3gd');
+
+  var showMap = function(err, data) {
+    if (data.latlng) {
+      map.setView([data.latlng[0], data.latlng[1]], 13);
+
+      L.mapbox.featureLayer({
+        type: 'Feature',
+        geometry: {
+          type: 'Point',
+          coordinates: [
+            data.latlng[1],
+            data.latlng[0]
+          ]
+        }
+      }).addTo(map);
+    }
+  }
+
+  geocoder.query('<%= post.escape('location') %>', showMap);
+</script>
+
+<ul>
+  <li><%= number_to_currency(post.escape('price')) %></li>
+  <li><%= post.escape('location') %></li>
+</ul>
+
+<p class="post-description">
+  <%= post.escape('description') %>
+</p>
+
+<footer class="post-footer">
+  <ul class="post-timestamp">
+    <li>created <%= time_ago_in_words(post.escape('created_at')) %> ago</li>
+    <li>updated <%= time_ago_in_words(post.escape('updated_at')) %> ago</li>
+  </ul>
+</footer>
+</article>
