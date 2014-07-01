@@ -81,7 +81,7 @@
         <label for="post-image-destroy">Delete Image?</label>
         <input id="post-image-destroy" type="checkbox" value="1" name="images[<%= image.object_id %>][_destroy]">
       <% else %>
-        <input type="file" name="images[<%= image.object_id %>][file]">
+        <input type="file" class="post-image-file" name="images[<%= image.object_id %>][file]">
       <% end %>
     <% end %>
   </fieldset>

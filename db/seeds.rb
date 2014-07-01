@@ -86,6 +86,11 @@ addresses = [
   }
 ]
 
+pwd = Dir.pwd
+Dir.chdir("db/image_seed_data")
+images = Dir.glob("*.jpg").map { |image| Dir.pwd + "/" + image }
+Dir.chdir(pwd)
+
 Category.all.each do |category|
   User.all.each do |user|
     params = {}
@@ -94,6 +99,8 @@ Category.all.each do |category|
     params[:price] = rand(10..2000)
     params[:category_id] = category.id
 
-    user.posts.create!(params)
+    post = user.posts.new(params)
+    post.images.new(file: File.open(images.sample))
+    post.save!
   end
 end
