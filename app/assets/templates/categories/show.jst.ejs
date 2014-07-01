@@ -11,9 +11,11 @@
 
   <tbody>
   <% category.posts().each(function(post) { %>
-    <td class="post-title-data"><a href="#<%= post.url() %>"><%= post.escape('title') %></a></td>
-    <td class="post-price-data"><%= post.escape('price') %></td>
-    <td class="post-location-data"><%= post.escape('location') %></td>
+    <tr>
+      <td class="post-title-data"><a href="#<%= post.url() %>"><%= post.escape('title') %></a></td>
+      <td class="post-price-data"><%= post.escape('price') %></td>
+      <td class="post-location-data"><%= post.escape('location') %></td>
+    </tr>
   <% }); %>
   </tbody>
 </table>
