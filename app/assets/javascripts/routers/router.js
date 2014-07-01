@@ -29,6 +29,14 @@ Clonelist.Routers.Router = Backbone.Router.extend({
   },
 
   showPost: function(id) {
+    var post = new Clonelist.Models.Post({ id: id });
+    post.fetch();
+
+    var postShow = new Clonelist.Views.PostShow({
+      model: post
+    });
+
+    this._swapView(postShow);
   },
 
   _getOrFetch: function(collection, id) {

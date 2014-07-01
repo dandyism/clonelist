@@ -28,7 +28,7 @@
 </script>
 
 <ul>
-  <li><%= number_to_currency(post.escape('price')) %></li>
+  <li><%= post.escape('price') %></li>
   <li><%= post.escape('location') %></li>
 </ul>
 
@@ -38,8 +38,8 @@
 
 <footer class="post-footer">
   <ul class="post-timestamp">
-    <li>created <%= time_ago_in_words(post.escape('created_at')) %> ago</li>
-    <li>updated <%= time_ago_in_words(post.escape('updated_at')) %> ago</li>
+    <li>created <%= post.escape('created_at') %> ago</li>
+    <li>updated <%= post.escape('updated_at') %> ago</li>
   </ul>
 </footer>
 </article>
