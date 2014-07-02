@@ -8,6 +8,10 @@ Clonelist.Views.PostsIndex = Backbone.View.extend({
 
   template: JST['posts/index'],
 
+  autoNumeric: function() {
+    this.$el.find('.post-price-data').autoNumeric('init', { aSign: '$' });
+  },
+
   render: function() {
     var rendered = this.template({ posts: this.collection });
     this.$el.html(rendered);
@@ -17,6 +21,8 @@ Clonelist.Views.PostsIndex = Backbone.View.extend({
     } else {
       this.$el.removeClass('posts-index-empty');
     }
+
+    this.autoNumeric();
 
     return this;
   }
