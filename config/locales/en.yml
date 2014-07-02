@@ -20,8 +20,7 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
-  app_name: "clonelist"
+  app_name: "Listable"
   post:
     create:
       success: "We successfully created your post."
