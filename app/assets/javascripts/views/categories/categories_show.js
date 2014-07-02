@@ -33,7 +33,7 @@ Clonelist.Views.CategoryShow = Backbone.View.extend({
 
   remove: function() {
     this._postIndexView.remove();
-    return Backbone.View.remove.apply(this, arguments);
+    return Backbone.View.prototype.remove.apply(this);
   }
 
 });
