@@ -12,7 +12,6 @@ class PostsController < ApplicationController
   end
 
   def new
-    5.times { @post.images.build }
   end
 
   def index
@@ -25,17 +24,14 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post.images = image_params.map do |image_data|
-      if image_data[:file].present?
-        PostImage.new(image_data)
-      end
-    end.compact
+    @post.images = params[:new_images].map do |image_file|
+      PostImage.new(file: image_file)
+    end
 
     if @post.save
       redirect_to @post, notice: I18n.t('post.create.success')
     else
       flash.now[:errors] = @post.errors.full_messages
-      5.times { @post.images.build }
       render :new
     end
   end
@@ -45,9 +41,6 @@ class PostsController < ApplicationController
   end
 
   def edit
-    until @post.images.length >= 5
-      @post.images.build
-    end
   end
 
   def update
@@ -62,10 +55,12 @@ class PostsController < ApplicationController
 
         image.update(image_data)
         image
-      elsif image_data[:file].present?
-        PostImage.new(image_data)
       end
     end.compact
+
+    @post.images += params[:new_images].map do |image_file|
+      PostImage.new(file: image_file)
+    end
 
     if @post.update(post_params)
       redirect_to @post, notice: I18n.t('post.update.success')
@@ -95,6 +90,6 @@ class PostsController < ApplicationController
   end
 
   def image_params
-    params.permit(images: [:file, :id, :_destroy]).require(:images).values
+    params.permit(existing_images: [:id, :_destroy]).require(:existing_images).values
   end
 end
