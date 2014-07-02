@@ -27,12 +27,17 @@
 
 /* CONTAINER */
 
+html, body {
+  height: 100%;
+}
+
 .container {
   margin: 0 auto;
   max-width: 660px;
   border-top: 0;
   border-bottom: 0;
   padding: 20px;
+  min-height: 110%;
 }
 
 /* HEADER */
