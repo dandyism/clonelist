@@ -8,12 +8,12 @@
   </thead>
 
   <tbody>
-  <% posts.each(function(post) { %>
-    <tr>
-      <td class="post-title-data"><a href="#<%= post.url() %>"><%= post.escape('title') %></a></td>
-      <td class="post-price-data"><%= post.escape('price') %></td>
-      <td class="post-location-data"><%= post.escape('location') %></td>
-    </tr>
-  <% }); %>
+    <% posts.each(function(post) { %>
+      <tr>
+        <td class="post-title-data"><a href="#<%= post.url() %>"><%= post.escape('title') %></a></td>
+        <td class="post-price-data"><%= post.escape('price') %></td>
+        <td class="post-location-data"><%= post.escape('location') %></td>
+      </tr>
+    <% }); %>
   </tbody>
 </table>
