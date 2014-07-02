@@ -1,0 +1,35 @@
+input[type="text"],
+input[type="password"] {
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+}
+
+select {
+  margin-bottom: 10px;
+}
+
+button,
+input[type="submit"] {
+  background: #1F5D99;
+  color: white;
+  font-weight: bold;
+  padding: 5px 10px;
+  border-bottom: 2px solid #273A4C;
+  position: relative;
+
+  &:hover {
+    background: #2A7CCC;
+    border-color: #6BA1D4;
+  }
+
+  &:active {
+    background: #273A4C;
+    border: 0;
+    top: 2px;
+  }
+}
+
+label {
+  margin-bottom: 5px;
+  text-transform: lowercase;
+}
