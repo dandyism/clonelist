@@ -17,4 +17,14 @@ class Post < ActiveRecord::Base
   def location
     [address_1, address_2, city, region, postalcode].compact.join(', ')
   end
+
+  def image_urls
+    images.map(&:url)
+  end
+
+  def image_thumbnail_urls
+    images.map do |image|
+      image.url(:thumbnail)
+    end
+  end
 end
