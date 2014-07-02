@@ -9,3 +9,14 @@
   background: #9EFF92;
   border: 1px solid #2D7F23;
 }
+
+.form-errors {
+  padding: 20px;
+  background: #FF7C78;
+  color: #7F1916;
+  border: 1px solid #7F1916;
+
+  li {
+    line-height: 1.5em;
+  }
+}
