@@ -43,11 +43,12 @@ html, body {
 /* HEADER */
 
 .nav-list {
-  float: right;
+  width: 100%;
+  text-align: center;
 }
 
 .nav-item {
-  float: left;
+  display: inline-block;
 }
 
 .nav-item a,
