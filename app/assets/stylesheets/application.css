@@ -61,7 +61,9 @@
 }
 
 h1 {
-  font-size: 60px;
+  font-family: 'Pacifico', cursive;
+  font-size: 48px;
+  color: #B22E25;
   text-align: center;
 }
 
