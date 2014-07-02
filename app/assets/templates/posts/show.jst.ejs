@@ -1,64 +1,66 @@
-<article class="post">
-<h2 class="post-title"><%= post.escape('title') %></h2>
+<article class="post clearfix">
+  <h2 class="post-title"><%= post.escape('title') %></h2>
 
-<div id="map"></div>
+  <section class="post-info">
+    <div id="map"></div>
 
-<script type="text/javascript">
-  var geocoder = L.mapbox.geocoder('redacted.ikmmj3gd'),
-      map = L.mapbox.map('map', 'redacted.ikmmj3gd');
+    <script type="text/javascript">
+      var geocoder = L.mapbox.geocoder('redacted.ikmmj3gd'),
+          map = L.mapbox.map('map', 'redacted.ikmmj3gd');
 
-  var showMap = function(err, data) {
-    if (data.latlng) {
-      map.setView([data.latlng[0], data.latlng[1]], 13);
+      var showMap = function(err, data) {
+        if (data.latlng) {
+          map.setView([data.latlng[0], data.latlng[1]], 13);
 
-      L.mapbox.featureLayer({
-        type: 'Feature',
-        geometry: {
-          type: 'Point',
-          coordinates: [
-            data.latlng[1],
-            data.latlng[0]
-          ]
+          L.mapbox.featureLayer({
+            type: 'Feature',
+            geometry: {
+              type: 'Point',
+              coordinates: [
+                data.latlng[1],
+                data.latlng[0]
+              ]
+            }
+          }).addTo(map);
         }
-      }).addTo(map);
-    }
-  }
+      }
 
-  geocoder.query('<%= post.escape('location') %>', showMap);
-</script>
+      geocoder.query('<%= post.escape('location') %>', showMap);
+    </script>
 
-<ul>
-  <li><%= post.escape('price') %></li>
-  <li><%= post.escape('location') %></li>
-</ul>
+    <ul>
+      <li><%= post.escape('price') %></li>
+      <li><%= post.escape('location') %></li>
+    </ul>
+  </section>
 
-<p class="post-description">
-  <%= post.escape('description') %>
-</p>
+  <section class="post-description">
+    <%= post.escape('description') %>
+  </section>
 
-<footer class="post-footer">
-  <ul class="post-timestamp">
-    <li>created
-      <abbr class="timeago" title="<%= post.escape('created_at') %>">
-        <%= post.escape('created_at') %>
-      </abbr>
-    </li>
+  <footer class="post-footer">
+    <ul class="post-timestamp">
+      <li>created
+        <abbr class="timeago" title="<%= post.escape('created_at') %>">
+          <%= post.escape('created_at') %>
+        </abbr>
+      </li>
 
-    <li>updated
-      <abbr class="timeago" title="<%= post.escape('created_at') %>">
-        <%= post.escape('updated_at') %>
-      </abbr>
-    </li>
-  </ul>
+      <li>updated
+        <abbr class="timeago" title="<%= post.escape('created_at') %>">
+          <%= post.escape('updated_at') %>
+        </abbr>
+      </li>
+    </ul>
 
-  <ul class="post-management">
-  <% if (post.can("update")) { %>
-    <a href="<%= post.url() + "/edit" %>">edit</a>
-  <% } %>
+    <ul class="post-management">
+    <% if (post.can("update")) { %>
+      <a href="<%= post.url() + "/edit" %>">edit</a>
+    <% } %>
 
-  <% if (post.can("destroy")) { %>
-    <a href="<%= post.url() + "/confirm_delete" %>">delete</a>
-  <% } %>
-  </ul>
-</footer>
+    <% if (post.can("destroy")) { %>
+      <a href="<%= post.url() + "/confirm_delete" %>">delete</a>
+    <% } %>
+    </ul>
+  </footer>
 </article>
