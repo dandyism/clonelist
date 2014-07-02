@@ -17,18 +17,15 @@
 }
 
 .search-keywords {
-  width: 510px;
+  width: 600px;
   float: left;
   height: 100%;
 }
 
 .search-button {
-  width: 120px;
+  padding: 0 10px;
   height: 100%;
   float: right;
-  background: white;
-  color: black;
-  box-shadow: 0 0 5px black;
 }
 
 .search-button:hover {
