@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.timeago
+//= require autoNumeric
 //= require underscore
 //= require backbone
 //= require cancan_backbone
