@@ -1,6 +1,14 @@
 <article class="post clearfix">
   <h2 class="post-title"><%= post.escape('title') %></h2>
 
+  <% if (images && images.length > 0) { %>
+    <ul class="post-images">
+      <% _(images).each(function(url) { %>
+        <li class="post-image"><img src="<%= _.escape(url) %>"></li>
+      <% }); %>
+    </ul>
+  <% } %>
+
   <section class="post-info">
     <div id="map"></div>
 
