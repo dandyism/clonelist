@@ -16,7 +16,7 @@ No ads found
       <tr>
         <td class="post-title-data"><a href="#<%= post.url() %>"><%= post.escape('title') %></a></td>
         <td class="post-price-data"><%= post.escape('price') %></td>
-        <td class="post-location-data"><%= post.escape('location') %></td>
+        <td class="post-location-data"><%= post.escape('city') + ", " + post.escape('region') %></td>
       </tr>
     <% }); %>
   </tbody>
