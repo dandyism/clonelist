@@ -21,6 +21,7 @@
 
 en:
   app_name: "Listable"
+  site_description: "a Craigslist clone"
   post:
     create:
       success: "We successfully created your post."

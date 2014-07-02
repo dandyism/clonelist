@@ -42,6 +42,11 @@ html, body {
 
 /* HEADER */
 
+.site-description {
+  text-align: center;
+  color: darkgray;
+}
+
 .nav-list {
   width: 100%;
   text-align: center;
