@@ -9,7 +9,7 @@ Clonelist.Views.PostsIndex = Backbone.View.extend({
   template: JST['posts/index'],
 
   autoNumeric: function() {
-    this.$el.find('.post-price-data').autoNumeric('init', { aSign: '$' });
+    this.$('.post-price-data').autoNumeric('init', { aSign: '$' });
   },
 
   render: function() {
