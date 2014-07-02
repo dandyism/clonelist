@@ -2,11 +2,14 @@
   <h2 class="post-title"><%= post.escape('title') %></h2>
 
   <% if (images && images.length > 0) { %>
-    <ul class="post-images">
-      <% _(images).each(function(url) { %>
-        <li class="post-image"><img src="<%= _.escape(url) %>"></li>
-      <% }); %>
-    </ul>
+    <div class="post-images">
+      <img src="<%= images[0] %>" id="post-image">
+      <ul class="post-thumbnails">
+        <% _(images).each(function(url) { %>
+          <li><img src="<%= _.escape(url) %>"></li>
+        <% }); %>
+      </ul>
+    </div>
   <% } %>
 
   <section class="post-info">
@@ -37,7 +40,7 @@
     </script>
 
     <ul>
-      <li><%= post.escape('price') %></li>
+      <li class="post-price"><%= post.escape('price') %></li>
       <li><%= post.escape('location') %></li>
     </ul>
   </section>
