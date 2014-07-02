@@ -70,10 +70,6 @@ h2 {
   line-height: 1.5em;
 }
 
-h1, h2, h3 {
-  font-family: "museo-sans-condensed",sans-serif;
-}
-
 .main-logo {
   width: 200px;
   height: auto;
@@ -84,7 +80,7 @@ h1, h2, h3 {
 /* FONT */
 
 body {
-  font-family: 'Rosario', sans-serif;
+  font-family: sans-serif;
   font-size: 18px;
 }
 
