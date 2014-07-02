@@ -11,7 +11,3 @@ window.Clonelist = {
     Backbone.history.start();
   }
 };
-
-$(document).ready(function(){
-  Clonelist.initialize($('#content'));
-});
