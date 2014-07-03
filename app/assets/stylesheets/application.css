@@ -109,3 +109,11 @@ body {
   background: url('loading.gif') no-repeat center;
   color: transparent;
 }
+
+em {
+  font-style: italic;
+}
+
+strong {
+  font-weight: bold;
+}
