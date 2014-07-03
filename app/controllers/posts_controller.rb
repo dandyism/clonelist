@@ -15,17 +15,27 @@ class PostsController < ApplicationController
   end
 
   def index
-    @category = Category.find(params[:category_id])
-    @posts = @category.posts.page(params[:page])
+    if params[:category_id]
+      @category = Category.find(params[:category_id])
+      @posts = @category.posts.page(params[:page])
+    else
+      @posts = Post.all.page(params[:page])
+    end
 
     if params[:keywords].present?
       @posts = @posts.search_by_keywords(params[:keywords])
     end
+
+    if params[:author_id].present?
+      @posts = @posts.where(author_id: params[:author_id])
+    end
   end
 
   def create
-    @post.images = params[:new_images].map do |image_file|
-      PostImage.new(file: image_file)
+    if params[:new_images]
+      @post.images = params[:new_images].map do |image_file|
+        PostImage.new(file: image_file)
+      end
     end
 
     if @post.save
@@ -58,8 +68,10 @@ class PostsController < ApplicationController
       end
     end.compact
 
-    @post.images += params[:new_images].map do |image_file|
-      PostImage.new(file: image_file)
+    if params[:new_images]
+      @post.images += params[:new_images].map do |image_file|
+        PostImage.new(file: image_file)
+      end
     end
 
     if @post.update(post_params)

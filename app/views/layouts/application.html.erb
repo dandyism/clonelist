@@ -23,6 +23,12 @@
     <div class="flash-notice"><%= flash[:notice] %></div>
   <% end %>
 
+  <% if signed_in? %>
+    <script id="user-data" type="application/json">
+      <%= current_user.to_json.html_safe %>
+    </script>
+  <% end %>
+
   <div id="content">
     <%= yield %>
   </div>

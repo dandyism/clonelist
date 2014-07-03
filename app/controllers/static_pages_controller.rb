@@ -3,6 +3,7 @@ class StaticPagesController < ApplicationController
   end
 
   def manage
+    fail
     @posts = current_user.posts.page(params[:page])
   end
 

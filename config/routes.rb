@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get 'posts/:id/confirm_delete', to: 'posts#confirm_delete', as: :post_confirm_delete
   get 'search', to: 'static_pages#search', as: :search
 
-  resources :posts, except: :index
+  resources :posts
   resources :categories do
     resources :posts, only: :index
   end
