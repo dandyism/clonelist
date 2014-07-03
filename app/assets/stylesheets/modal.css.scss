@@ -1,0 +1,46 @@
+.modal {
+  display: none;
+}
+
+.modal.is-active {
+  display: block;
+}
+
+.modal-screen {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  background: black;
+  opacity: 0.8;
+  z-index: 9998;
+}
+
+.modal-x {
+  cursor: pointer;
+  font-weight: bold;
+  float: right;
+  color: darkgray;
+
+  &:hover {
+    color: black;
+  }
+}
+
+.modal-content {
+  $width: 480px;
+  position: absolute;
+  margin-left: -($width/2);
+  left: 50%;
+  width: $width;
+  z-index: 9999;
+  background: white;
+  padding: 20px;
+  border-radius: 3px;
+
+  p {
+    margin: 20px 0;
+  }
+}
