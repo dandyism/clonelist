@@ -9,14 +9,25 @@ Clonelist.Views.CategoryShow = Backbone.View.extend({
   },
 
   events: {
-    "input #search-keywords": "filter",
-    "click .search-button": "filter"
+    "input #search-keywords": "filterDelay",
+    "submit .search": "filter"
+  },
+
+  filterDelay: function(event) {
+    event.preventDefault();
+    if (this._searchTimeout) { 
+      window.clearTimeout(this._searchTimeout);
+    }
+ 
+    var view = this;
+    this._searchTimeout = setTimeout(function() {
+      view.filter(event);
+    }, 500);
   },
 
   filter: function(event) {
     event.preventDefault();
-
-    var keywords = $(event.target).val();
+    var keywords = $('#search-keywords').val();
 
     this.model.posts().fetch({
       data: {
