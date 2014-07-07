@@ -1,4 +1,4 @@
-Clonelist.Views.CategoriesIndex = Backbone.View.extend({
+Listable.Views.CategoriesIndex = Backbone.View.extend({
 
   initialize: function(options) {
     this.listenTo(this.collection, "sync", this.render);

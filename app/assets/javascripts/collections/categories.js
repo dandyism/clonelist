@@ -1,4 +1,4 @@
-Clonelist.Collections.Categories = Backbone.Collection.extend({
+Listable.Collections.Categories = Backbone.Collection.extend({
   url: '/categories',
-  model: Clonelist.Models.Category
+  model: Listable.Models.Category
 });

@@ -1,9 +1,9 @@
-Clonelist.Models.Category = Backbone.Model.extend({
+Listable.Models.Category = Backbone.Model.extend({
   urlRoot: '/categories',
 
   posts: function() {
     this._posts = this._posts ||
-      new Clonelist.Collections.Posts([], { category: this });
+      new Listable.Collections.Posts([], { category: this });
 
     return this._posts
   },

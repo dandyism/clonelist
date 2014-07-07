@@ -1,4 +1,4 @@
-Clonelist.Collections.Posts = Backbone.Collection.extend({
+Listable.Collections.Posts = Backbone.Collection.extend({
   url: function() {
     if (this.category) { 
       return this.category.url() + '/posts';
@@ -7,7 +7,7 @@ Clonelist.Collections.Posts = Backbone.Collection.extend({
     }
   },
 
-  model: Clonelist.Models.Post,
+  model: Listable.Models.Post,
 
   initialize: function(models, options) {
     if (options) { 

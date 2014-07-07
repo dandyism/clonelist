@@ -17,7 +17,7 @@
 //= require underscore
 //= require backbone
 //= require cancan_backbone
-//= require clonelist
+//= require listable
 //= require_tree ../templates
 //= require_tree ./models
 //= require_tree ./collections

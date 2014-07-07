@@ -1,11 +1,11 @@
-Clonelist.Views.CategoryShow = Backbone.View.extend({
+Listable.Views.CategoryShow = Backbone.View.extend({
 
   template: JST["categories/show"],
 
   initialize: function(options) {
     this.listenTo(this.model, "sync", this.render);
 
-    this._postIndexView = new Clonelist.Views.PostsIndex({ collection: this.model.posts() });
+    this._postIndexView = new Listable.Views.PostsIndex({ collection: this.model.posts() });
   },
 
   events: {

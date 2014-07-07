@@ -1,4 +1,4 @@
-Clonelist.Views.PostShow = Backbone.View.extend({
+Listable.Views.PostShow = Backbone.View.extend({
 
   initialize: function() {
     this.listenTo(this.model, "sync", this.render);

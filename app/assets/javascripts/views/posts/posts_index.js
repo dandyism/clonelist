@@ -1,4 +1,4 @@
-Clonelist.Views.PostsIndex = Backbone.View.extend({
+Listable.Views.PostsIndex = Backbone.View.extend({
 
   className: 'posts-index', 
 

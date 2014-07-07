@@ -1,7 +1,7 @@
-Clonelist.Routers.Router = Backbone.Router.extend({
+Listable.Routers.Router = Backbone.Router.extend({
   initialize: function(options) {
     this.$rootEl = options.$rootEl;
-    this.categories = Clonelist.Collections.categories;
+    this.categories = Listable.Collections.categories;
   },
 
   routes: {
@@ -12,7 +12,7 @@ Clonelist.Routers.Router = Backbone.Router.extend({
   },
 
   index: function() {
-    var categoriesIndex = new Clonelist.Views.CategoriesIndex({
+    var categoriesIndex = new Listable.Views.CategoriesIndex({
       collection: this.categories
     });
 
@@ -22,7 +22,7 @@ Clonelist.Routers.Router = Backbone.Router.extend({
   showCategory: function(id) {
     var category = this._getOrFetch(this.categories, id);
 
-    var showCategory = new Clonelist.Views.CategoryShow({
+    var showCategory = new Listable.Views.CategoryShow({
       model: category
     });
 
@@ -30,10 +30,10 @@ Clonelist.Routers.Router = Backbone.Router.extend({
   },
 
   showPost: function(id) {
-    var post = new Clonelist.Models.Post({ id: id });
+    var post = new Listable.Models.Post({ id: id });
     post.fetch();
 
-    var postShow = new Clonelist.Views.PostShow({
+    var postShow = new Listable.Views.PostShow({
       model: post
     });
 
@@ -46,7 +46,7 @@ Clonelist.Routers.Router = Backbone.Router.extend({
 
   managePosts: function() {
     var user = JSON.parse($('#user-data').text());
-    var posts = new Clonelist.Collections.Posts;
+    var posts = new Listable.Collections.Posts;
 
     posts.fetch({
       data: {
@@ -54,7 +54,7 @@ Clonelist.Routers.Router = Backbone.Router.extend({
       }
     });
 
-    var postIndex = new Clonelist.Views.PostsIndex({
+    var postIndex = new Listable.Views.PostsIndex({
       collection: posts
     });
 

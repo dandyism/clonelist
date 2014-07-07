@@ -1,4 +1,4 @@
-Clonelist.Models.Post = Backbone.Model.extend({
+Listable.Models.Post = Backbone.Model.extend({
   urlRoot: '/posts',
 
   can: function(action) {
