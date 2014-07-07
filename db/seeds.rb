@@ -26,7 +26,7 @@ products = [
   },
 
   {
-    title: "Relable truck. CHEAP",
+    title: "Reliable truck. CHEAP",
     description: "Runs great and gets decent gas mileage. Includes fuzzy dice."
   },
 
