@@ -27,3 +27,5 @@ en:
       success: "We successfully created your post."
     update:
       success: "Your changes are saved."
+    delete:
+      success: "The post was deleted."

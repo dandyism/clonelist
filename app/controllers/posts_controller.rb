@@ -84,7 +84,7 @@ class PostsController < ApplicationController
 
   def destroy
     @post.destroy!
-    redirect_to :root
+    redirect_to :root, notice: I18n.t('post.delete.success')
   end
 
   def manage
