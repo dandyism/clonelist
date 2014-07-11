@@ -5,6 +5,10 @@
     <p>Are you sure you want to delete this ad <em>forever?</em></p>
 
     <form action="<%= post.url() %>" method="post">
+      <input  type="hidden"
+              name="authenticity_token"
+              value="<%= $('meta[name=csrf-token]').attr('content') %>">
+
       <input type="hidden" name="_method" value="delete">
       <button class="form-button">Delete this ad</button>
     </form>

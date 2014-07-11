@@ -39,7 +39,7 @@ class PostsController < ApplicationController
     end
 
     if @post.save
-      redirect_to @post, notice: I18n.t('post.create.success')
+      redirect_to :root, notice: I18n.t('post.create.success')
     else
       flash.now[:errors] = @post.errors.full_messages
       render :new
