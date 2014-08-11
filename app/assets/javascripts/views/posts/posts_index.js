@@ -13,7 +13,11 @@ Listable.Views.PostsIndex = Backbone.View.extend({
   },
 
   render: function() {
-    var rendered = this.template({ posts: this.collection });
+    var rendered = this.template({
+      posts: this.collection,
+      categories: Listable.Collections.categories
+    });
+
     this.$el.html(rendered);
 
     if (this.collection.length === 0) { 

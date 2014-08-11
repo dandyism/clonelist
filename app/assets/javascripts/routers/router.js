@@ -1,7 +1,7 @@
 Listable.Routers.Router = Backbone.Router.extend({
   initialize: function(options) {
     this.$rootEl = options.$rootEl;
-    this.categories = Listable.Collections.categories;
+    this.posts = Listable.Collections.posts;
   },
 
   routes: {
@@ -12,11 +12,11 @@ Listable.Routers.Router = Backbone.Router.extend({
   },
 
   index: function() {
-    var categoriesIndex = new Listable.Views.CategoriesIndex({
-      collection: this.categories
+    var postsSearchableIndex = new Listable.Views.PostsSearchableIndex({
+      collection: this.posts
     });
 
-    this._swapView(categoriesIndex);
+    this._swapView(postsSearchableIndex);
   },
 
   showCategory: function(id) {

@@ -15,7 +15,7 @@ class PostsController < ApplicationController
   end
 
   def index
-    if params[:category_id]
+    if params[:category_id].present?
       @category = Category.find(params[:category_id])
       @posts = @category.posts.page(params[:page])
     else
