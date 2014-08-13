@@ -1,0 +1,31 @@
+footer {
+  color: #bdc3c7;
+  background-color: #34495e;
+  padding: 20px 0;
+  line-height: 2em;
+  font-size: 12px;
+
+  a {
+    color: #bdc3c7;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &:after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+}
+
+.footer-links {
+  float: right;
+
+  li {
+    float: left;
+    padding: 0 10px;
+  }
+}
