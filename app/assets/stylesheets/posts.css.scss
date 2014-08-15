@@ -88,11 +88,20 @@
 
   thead {
     text-align: left;
+    text-transform: uppercase;
+    font-size: 0.8em;
   }
 
   td {
     padding: 10px 0px;
-    border-bottom: 1px dashed black;
+  }
+
+  tr {
+    border-bottom: 1px solid #bdc3c7;
+
+    &:last-child {
+      border: 0;
+    }
   }
 
   a {
