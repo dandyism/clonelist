@@ -30,6 +30,8 @@
   <input type="hidden" name="_method" value="patch" id="_method">
   <% end %>
 
+  <button class="autofill form-button">Auto Fill</button>
+
   <label for="post-category">category</label>
   <select name="post[category_id]" id="post-category">
     <% Category.all.each do |category| %>
@@ -99,6 +101,5 @@
   <label for="post-images">add images</label>
   <input id="post-images" type="file" value="" name="new_images[]" multiple>
 
-  <button class="autofill form-button">Auto Fill</button>
   <button class="submit-button form-button">Post</button>
 </form>
