@@ -22,17 +22,20 @@ Category.create!(name: "Video Gaming")
 products = [
   {
     title: "Vintage chess set great condition",
-    description: "Made from real oak. Great finish and no nicks."
+    description: "Made from real oak. Great finish and no nicks.",
+    image_files: ["chess_1.jpg", "chess_2.jpg", "chess_3.jpg"]
   },
 
   {
     title: "Reliable truck. CHEAP",
-    description: "Runs great and gets decent gas mileage. Includes fuzzy dice."
+    description: "Runs great and gets decent gas mileage. Includes fuzzy dice.",
+    image_files: ["truck.jpg"]
   },
 
   {
     title: "Assorted clothing",
-    description: "Some hand-me-downs from a great aunt that I need to get rid of."
+    description: "Some hand-me-downs from a great aunt that I need to get rid of.",
+    image_files: ["shirt_1.jpg", "shirt_2.jpg"]
   }
 ]
 
@@ -59,21 +62,21 @@ addresses = [
   }
 ]
 
-pwd = Dir.pwd
-Dir.chdir("db/image_seed_data")
-images = Dir.glob("*.jpg").map { |image| Dir.pwd + "/" + image }
-Dir.chdir(pwd)
-
 Category.all.each do |category|
   User.all.each do |user|
+    product = products.sample.dup
+    image_files = product.delete :image_files
+
     params = {}
-    params.merge! products.sample
+    params.merge! product
     params.merge! addresses.sample
     params[:price] = rand(10..2000)
     params[:category_id] = category.id
 
     post = user.posts.new(params)
-    post.images.new(file: File.open(images.sample))
+    image_files.each do |image_file|
+      post.images.new(file: File.open("db/image_seed_data/" + image_file))
+    end
     post.save!
   end
 end
