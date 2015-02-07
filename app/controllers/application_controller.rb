@@ -28,7 +28,7 @@ class ApplicationController < ActionController::Base
       rule.instance_eval do
         {
           base_behavior: @base_behavior,
-          subjects: @subjects.map(&:to_s),
+          subjects: @subjects.map {|x| x.to_json(only: :author_id) },
           actions: @actions.map(&:to_s),
           conditions: @conditions
         }

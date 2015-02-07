@@ -7,13 +7,7 @@ class Ability
     can :read, :all
 
     if user.persisted?
-      can :create, Post
-      can :update, Post do |post|
-        post.try(:author) == user
-      end
-      can :destroy, Post do |post|
-        post.try(:author) == user
-      end
+      can :manage, Post, author_id: user.id
     end
   end
 end
