@@ -33,6 +33,15 @@ h1 {
   font-size: 48px;
   color: #ffffff;
   text-align: center;
+
+  a {
+    color: #ffffff;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 }
 
 h2 {
